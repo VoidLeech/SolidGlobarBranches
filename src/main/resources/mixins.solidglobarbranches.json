@@ -1,8 +1,8 @@
 {
   "required": true,
-  "package": "com.github.voidleech.template.mixin",
+  "package": "com.github.voidleech.solidglobarbranches.mixin",
   "compatibilityLevel": "JAVA_17",
-  "refmap": "mixins.template_mod.refmap.json",
+  "refmap": "mixins.solidglobarbranches.refmap.json",
   "mixins": [
   ],
   "client": [

@@ -1,4 +1,4 @@
-package com.github.voidleech.template;
+package com.github.voidleech.solidglobarbranches;
 
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
@@ -14,20 +14,20 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
-@Mod(TemplateMod.MOD_ID)
-public class TemplateMod
+@Mod(SolidGlobarBranches.MOD_ID)
+public class SolidGlobarBranches
 {
-    public static final String MOD_ID = "template_mod";
+    public static final String MOD_ID = "solidglobarbranches";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public TemplateMod()
+    public SolidGlobarBranches()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, TemplateModConfig.SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SolidGlobarBranchesConfig.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
