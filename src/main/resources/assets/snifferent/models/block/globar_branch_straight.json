@@ -1,0 +1,55 @@
+{
+  "render_type": "cutout",
+  "textures": {
+    "particle": "snifferent:block/globar_branch_middle",
+    "solid": "snifferent:block/globar_log"
+  },
+  "elements": [
+    {
+      "comment": "Physical branch",
+      "from": [6, 6, 0],
+      "to": [10, 10, 16],
+      "faces": {
+        "north": {
+          "uv": [0, 0, 4, 4],
+          "texture": "#solid"
+        },
+        "east": {
+          "uv": [16, 0, 0, 4],
+          "texture": "#solid"
+        },
+        "south": {
+          "uv": [0, 0, 4, 4],
+          "texture": "#solid"
+        },
+        "west": {
+          "uv": [0, 0, 16, 4],
+          "texture": "#solid"
+        },
+        "up": {
+          "uv": [0, 0, 4, 16],
+          "texture": "#solid"
+        },
+        "down": {
+          "uv": [0, 0, 4, 16],
+          "texture": "#solid"
+        }
+      }
+    },
+    {
+      "comment": "Cutout of original branch, only below the branch",
+      "from": [8, 0, 0],
+      "to": [8, 6, 16],
+      "faces": {
+        "east": {
+          "uv": [16, 10, 0, 16],
+          "texture": "#particle"
+        },
+        "west": {
+          "uv": [0, 10, 16, 16],
+          "texture": "#particle"
+        }
+      }
+    }
+  ]
+}

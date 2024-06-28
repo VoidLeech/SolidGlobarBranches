@@ -3,8 +3,7 @@
   "package": "com.github.voidleech.solidglobarbranches.mixin",
   "compatibilityLevel": "JAVA_17",
   "refmap": "mixins.solidglobarbranches.refmap.json",
-  "mixins": [
-  ],
+  "mixins": ["ClubMossPlacementMixin", "GlobarBranchMixin"],
   "client": [
   ],
   "minVersion": "0.8"

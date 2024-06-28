@@ -1,0 +1,144 @@
+package com.github.voidleech.solidglobarbranches.mixin;
+
+import com.github.voidleech.solidglobarbranches.registry.SGBTags;
+import net.mcreator.snifferent.block.GlobarBranchMiddleBlock;
+import net.mcreator.snifferent.init.SnifferentModBlocks;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.FallingBlockEntity;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+@Mixin(GlobarBranchMiddleBlock.class)
+public class GlobarBranchMixin extends Block {
+    @Shadow @Final public static DirectionProperty FACING;
+
+    public GlobarBranchMixin(Properties pProperties) {
+        super(pProperties);
+    }
+
+    @Inject(method = "<init>", at = @At("TAIL"))
+    private void bgb$branchCollision(CallbackInfo ci){
+        this.hasCollision = true;
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext ctx){
+        return switch (state.getValue(FACING)) {
+            case EAST, WEST -> box(0.0, 6.0, 6.0, 16.0, 10.0, 10.0);
+            default -> // NORTH/SOUTH
+                    box(6.0, 6.0, 0.0, 10.0, 10.0, 16.0);
+        };
+    }
+
+    // This method might not be fully accurate if chunks aren't loaded
+    @Override
+    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos){
+        if (level instanceof LevelAccessor world){
+            Direction facing = state.getValue(FACING);
+            BlockPos vec = switch (facing){
+                case EAST, WEST -> BlockPos.containing(1, 0, 0);
+                default -> BlockPos.containing(0, 0, 1);
+            };
+            Direction POS = switch (facing){
+                case EAST, WEST -> Direction.EAST;
+                default -> Direction.SOUTH;
+            };
+            Direction NEG = POS.getOpposite();
+
+            BlockPos targetPos = BlockPos.containing(pos.getX(), pos.getY(), pos.getZ());
+            while(true){
+                targetPos = targetPos.offset(vec);
+                if (world.isAreaLoaded(targetPos, 1)){
+                    if (world.getBlockState(targetPos).isFaceSturdy(world, targetPos, NEG)){
+                        return true;
+                    }
+                    BlockState bs = world.getBlockState(targetPos);
+                    if (bs.getBlock() == SnifferentModBlocks.GLOBAR_BRANCH_MIDDLE.get() && (bs.getValue(FACING) == POS || bs.getValue(FACING) == NEG)){
+                        continue;
+                    }
+                    // Non-branch block without a solid face to support us, check other side
+                }
+                break;
+            }
+            targetPos = BlockPos.containing(pos.getX(), pos.getY(), pos.getZ());
+            vec = vec.multiply(-1);
+            while(true){
+                targetPos = targetPos.offset(vec);
+                if (world.isAreaLoaded(targetPos, 1)){
+                    if (world.getBlockState(targetPos).isFaceSturdy(world, targetPos, POS)){
+                        return true;
+                    }
+                    BlockState bs = world.getBlockState(targetPos);
+                    if (bs.getBlock() == SnifferentModBlocks.GLOBAR_BRANCH_MIDDLE.get() && (bs.getValue(FACING) == POS || bs.getValue(FACING) == NEG)){
+                        continue;
+                    }
+                }
+                return false;
+            }
+        }
+        return super.canSurvive(state, level, pos);
+    }
+
+    @Override
+    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos currentPos, BlockPos neighborPos) {
+        return !state.canSurvive(world, currentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, direction, neighborState, world, currentPos, neighborPos);
+    }
+
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext ctx){
+        BlockState state = this.defaultBlockState();
+        Level level = ctx.getLevel();
+        BlockPos pos = ctx.getClickedPos();
+        Direction[] directions = ctx.getNearestLookingDirections();
+        for (Direction direction : directions){
+            if (direction.getAxis().isHorizontal()) {
+                state = state.setValue(FACING, direction.getOpposite());
+                if (state.canSurvive(level, pos)){
+                    return state;
+                }
+            }
+        }
+        // Should be unreachable
+        return this.defaultBlockState().setValue(FACING, ctx.getNearestLookingDirection());
+    }
+
+    @Override
+    public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float distance){
+        super.fallOn(level, state, pos, entity, distance);
+        Runnable breakBlock = () -> level.destroyBlock(pos, false);
+
+        if (entity instanceof FallingBlockEntity) {
+            breakBlock.run();
+            return;
+        }
+        if (!(entity instanceof LivingEntity livingEntity) || entity.getType().is(SGBTags.DOESNT_BREAK_BRANCHES)) {
+            return;
+        }
+
+        float maxFall = 3.0f;
+        maxFall *= (1.0f + EnchantmentHelper.getEnchantmentLevel(Enchantments.FALL_PROTECTION, livingEntity));
+        if (distance > maxFall) {
+            breakBlock.run();
+        }
+    }
+}
