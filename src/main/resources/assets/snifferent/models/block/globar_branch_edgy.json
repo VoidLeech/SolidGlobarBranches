@@ -1,4 +1,5 @@
 {
+  "comment": "Scrapped. Intended to have three rotated elements to reduce the blocky-ness. Too much z-fighting and cutout clipping to bother with making the elements line up nicely/do uv's",
   "render_type": "cutout",
   "textures": {
     "particle": "snifferent:block/globar_branch_middle",
@@ -6,12 +7,17 @@
   },
   "elements": [
     {
-      "comment": "Segment 1, 2px neutral height",
-      "from": [6, 6, 14],
+      "comment": "Segment 1, 4px downslope",
+      "from": [6, 6, 12],
       "to": [10, 10, 16],
+      "rotation": {
+        "origin": [8, 8, 14],
+        "axis": "x",
+        "angle": -22.5
+      },
       "faces": {
         "north": {
-          "uv": [0, 11, 4, 15],
+          "uv": [0, 0, 4, 4],
           "texture": "#solid"
         },
         "east": {
@@ -19,7 +25,7 @@
           "texture": "#solid"
         },
         "south": {
-          "uv": [0, 1, 4, 5],
+          "uv": [0, 0, 4, 4],
           "texture": "#solid"
         },
         "west": {
@@ -37,12 +43,17 @@
       }
     },
     {
-      "comment": "Segment 2, 3px lower height",
-      "from": [6, 5, 11],
-      "to": [10, 9, 14],
+      "comment": "Segment 2, 8px upslope",
+      "from": [6, 6, 4],
+      "to": [10, 10, 12],
+      "rotation": {
+        "origin": [8, 8, 8],
+        "axis": "x",
+        "angle": 22.5
+      },
       "faces": {
         "north": {
-          "uv": [0, 12, 4, 16],
+          "uv": [0, 0, 4, 4],
           "texture": "#solid"
         },
         "east": {
@@ -68,12 +79,17 @@
       }
     },
     {
-      "comment": "Segment 3, 3px neutral height",
-      "from": [6, 6, 8],
-      "to": [10, 10, 11],
+      "comment": "Segment 3, 4px downslope",
+      "from": [6, 6, 0],
+      "to": [10, 10, 4],
+      "rotation": {
+        "origin": [8, 8, 2],
+        "axis": "x",
+        "angle": -22.5
+      },
       "faces": {
         "north": {
-          "uv": [0, 11, 4, 15],
+          "uv": [0, 0, 4, 4],
           "texture": "#solid"
         },
         "east": {
@@ -81,7 +97,7 @@
           "texture": "#solid"
         },
         "south": {
-          "uv": [0, 1, 4, 5],
+          "uv": [0, 0, 4, 4],
           "texture": "#solid"
         },
         "west": {
@@ -94,68 +110,6 @@
         },
         "down": {
           "uv": [0, 11, 4, 8],
-          "texture": "#solid"
-        }
-      }
-    },
-    {
-      "comment": "Segment 4, 6px high height",
-      "from": [6, 7, 2],
-      "to": [10, 11, 8],
-      "faces": {
-        "north": {
-          "uv": [0, 10, 4, 14],
-          "texture": "#solid"
-        },
-        "east": {
-          "uv": [8, 0, 2, 4],
-          "texture": "#solid"
-        },
-        "south": {
-          "uv": [0, 2, 4, 6],
-          "texture": "#solid"
-        },
-        "west": {
-          "uv": [2, 0, 8, 4],
-          "texture": "#solid"
-        },
-        "up": {
-          "uv": [0, 2, 4, 8],
-          "texture": "#solid"
-        },
-        "down": {
-          "uv": [0, 8, 4, 2],
-          "texture": "#solid"
-        }
-      }
-    },
-    {
-      "comment": "Segment 5, 2px high height",
-      "from": [6, 6, 0],
-      "to": [10, 10, 2],
-      "faces": {
-        "north": {
-          "uv": [0, 11, 4, 15],
-          "texture": "#solid"
-        },
-        "east": {
-          "uv": [2, 0, 0, 4],
-          "texture": "#solid"
-        },
-        "south": {
-          "uv": [0, 1, 4, 5],
-          "texture": "#solid"
-        },
-        "west": {
-          "uv": [0, 0, 2, 4],
-          "texture": "#solid"
-        },
-        "up": {
-          "uv": [0, 0, 4, 2],
-          "texture": "#solid"
-        },
-        "down": {
-          "uv": [0, 2, 4, 0],
           "texture": "#solid"
         }
       }

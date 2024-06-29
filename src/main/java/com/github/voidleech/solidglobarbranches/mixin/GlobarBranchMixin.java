@@ -118,8 +118,8 @@ public class GlobarBranchMixin extends Block {
                 }
             }
         }
-        // Should be unreachable
-        return this.defaultBlockState().setValue(FACING, ctx.getNearestLookingDirection());
+        // Cannot place it in this position, state we return is going to go unused, return default state
+        return this.defaultBlockState();
     }
 
     @Override
@@ -135,7 +135,9 @@ public class GlobarBranchMixin extends Block {
             return;
         }
 
-        float maxFall = 3.0f;
+        // Break if fall > 2.5 blocks
+        float maxFall = 2.5f;
+        // Adjust by feather falling level
         maxFall *= (1.0f + EnchantmentHelper.getEnchantmentLevel(Enchantments.FALL_PROTECTION, livingEntity));
         if (distance > maxFall) {
             breakBlock.run();
