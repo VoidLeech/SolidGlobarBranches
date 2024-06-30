@@ -8,7 +8,19 @@
         "model": "snifferent:block/globar_branch_twig8r9", "y": 90
       },
       {
+        "model": "snifferent:block/globar_branch_twig5r6", "y": 90
+      },
+      {
         "model": "snifferent:block/globar_branch_twig3l4", "y": 90
+      },
+      {
+        "model": "snifferent:block/globar_branch_twig6l7", "y": 90
+      },
+      {
+        "model": "snifferent:block/globar_branch_twig2l310r11", "y": 90
+      },
+      {
+        "model": "snifferent:block/globar_branch_twig12l133r4", "y": 90
       }
     ],
     "facing=west": [
@@ -19,7 +31,19 @@
         "model": "snifferent:block/globar_branch_twig8r9", "y": 270
       },
       {
+        "model": "snifferent:block/globar_branch_twig5r6", "y": 270
+      },
+      {
         "model": "snifferent:block/globar_branch_twig3l4", "y": 270
+      },
+      {
+        "model": "snifferent:block/globar_branch_twig6l7", "y": 270
+      },
+      {
+        "model": "snifferent:block/globar_branch_twig2l310r11", "y": 270
+      },
+      {
+        "model": "snifferent:block/globar_branch_twig12l133r4", "y": 270
       }
     ],
     "facing=north": [
@@ -30,7 +54,19 @@
         "model": "snifferent:block/globar_branch_twig8r9", "y": 0
       },
       {
+        "model": "snifferent:block/globar_branch_twig5r6", "y": 0
+      },
+      {
         "model": "snifferent:block/globar_branch_twig3l4", "y": 0
+      },
+      {
+        "model": "snifferent:block/globar_branch_twig6l7", "y": 0
+      },
+      {
+        "model": "snifferent:block/globar_branch_twig2l310r11", "y": 0
+      },
+      {
+        "model": "snifferent:block/globar_branch_twig12l133r4", "y": 0
       }
     ],
     "facing=south": [
@@ -41,7 +77,19 @@
         "model": "snifferent:block/globar_branch_twig8r9", "y": 180
       },
       {
+        "model": "snifferent:block/globar_branch_twig5r6", "y": 180
+      },
+      {
         "model": "snifferent:block/globar_branch_twig3l4", "y": 180
+      },
+      {
+        "model": "snifferent:block/globar_branch_twig6l7", "y": 180
+      },
+      {
+        "model": "snifferent:block/globar_branch_twig2l310r11", "y": 180
+      },
+      {
+        "model": "snifferent:block/globar_branch_twig12l133r4", "y": 180
       }
     ]
   }
