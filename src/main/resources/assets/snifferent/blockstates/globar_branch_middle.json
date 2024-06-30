@@ -6,6 +6,9 @@
       },
       {
         "model": "snifferent:block/globar_branch_twig8r9", "y": 90
+      },
+      {
+        "model": "snifferent:block/globar_branch_twig3l4", "y": 90
       }
     ],
     "facing=west": [
@@ -14,6 +17,9 @@
       },
       {
         "model": "snifferent:block/globar_branch_twig8r9", "y": 270
+      },
+      {
+        "model": "snifferent:block/globar_branch_twig3l4", "y": 270
       }
     ],
     "facing=north": [
@@ -22,6 +28,9 @@
       },
       {
         "model": "snifferent:block/globar_branch_twig8r9", "y": 0
+      },
+      {
+        "model": "snifferent:block/globar_branch_twig3l4", "y": 0
       }
     ],
     "facing=south": [
@@ -30,6 +39,9 @@
       },
       {
         "model": "snifferent:block/globar_branch_twig8r9", "y": 180
+      },
+      {
+        "model": "snifferent:block/globar_branch_twig3l4", "y": 180
       }
     ]
   }

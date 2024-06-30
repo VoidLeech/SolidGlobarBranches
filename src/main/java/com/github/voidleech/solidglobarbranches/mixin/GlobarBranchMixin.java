@@ -17,8 +17,11 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.spongepowered.asm.mixin.Final;
@@ -38,7 +41,18 @@ public class GlobarBranchMixin extends Block {
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void bgb$branchCollision(CallbackInfo ci){
+        // Sufficient for collision
         this.hasCollision = true;
+
+        // Adjust this.properties in case another mod needs this.properties to be accurate
+        this.properties.hasCollision = true;
+        // Change push reaction so branches get destroyed like leaves # why is this not part of Block
+        this.properties.pushReaction = PushReaction.DESTROY;
+        // Remake state definition s.t. property changes are reflected in-game
+        StateDefinition.Builder<Block, BlockState> builder = new StateDefinition.Builder<>(this);
+        this.createBlockStateDefinition(builder);
+        this.stateDefinition = builder.create(Block::defaultBlockState, BlockState::new);
+        this.registerDefaultState(this.stateDefinition.any());
     }
 
     @Override
@@ -142,5 +156,9 @@ public class GlobarBranchMixin extends Block {
         if (distance > maxFall) {
             breakBlock.run();
         }
+    }
+
+    public PushReaction getPistonPushReaction(){
+        return PushReaction.DESTROY;
     }
 }
