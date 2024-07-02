@@ -1,4 +1,5 @@
 {
+  "comment": "Unused, initial 3d model before bumpy was made. Available for use in resourcepacks that just want simple and performant",
   "render_type": "cutout",
   "textures": {
     "particle": "snifferent:block/globar_branch_middle",

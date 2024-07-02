@@ -1,0 +1,15 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "minecraft:resistance",
+  "providers": [
+    {
+      "item": "snifferent:tuber_fruit"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

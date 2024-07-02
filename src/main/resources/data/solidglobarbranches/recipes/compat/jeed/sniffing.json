@@ -1,0 +1,15 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "snifferent:sniffing",
+  "providers": [
+    {
+      "item": "snifferent:sniffberry"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

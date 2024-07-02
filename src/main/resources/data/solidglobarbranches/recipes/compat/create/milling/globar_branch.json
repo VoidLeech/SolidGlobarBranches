@@ -1,0 +1,31 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "snifferent:globar_branch_middle"
+    }
+  ],
+  "processingTime": 100,
+  "results": [
+    {
+      "item": "minecraft:stick",
+      "count": 3
+    },
+    {
+      "item": "minecraft:stick",
+      "count": 1,
+      "chance": 0.25
+    },
+    {
+      "item": "snifferent:globar_planks",
+      "count": 1,
+      "chance": 0.025
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

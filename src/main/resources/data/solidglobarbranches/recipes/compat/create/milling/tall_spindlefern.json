@@ -1,0 +1,26 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "snifferent:tall_spindlefern"
+    }
+  ],
+  "processingTime": 50,
+  "results": [
+    {
+      "item": "minecraft:green_dye",
+      "count": 3
+    },
+    {
+      "item": "minecraft:purple_dye",
+      "count": 2,
+      "chance": 0.25
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}
