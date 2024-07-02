@@ -1,6 +1,6 @@
 package com.github.voidleech.solidglobarbranches.mixin.farmland.spineflower;
 
-import com.github.voidleech.solidglobarbranches.util.ModdedFarmlandUtil;
+import com.github.voidleech.solidglobarbranches.util.ModdedFarmland;
 import net.mcreator.snifferent.block.Spineflower1Block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -41,6 +41,6 @@ public class Spineflower1Mixin extends FlowerBlock implements BonemealableBlock 
 
     @Override
     public boolean mayPlaceOn(BlockState state, BlockGetter world, BlockPos pos){
-        return ModdedFarmlandUtil.isFarmland(state);
+        return ModdedFarmland.isFarmland(state);
     }
 }

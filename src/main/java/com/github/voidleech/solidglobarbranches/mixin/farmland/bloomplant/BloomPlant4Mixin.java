@@ -1,6 +1,6 @@
 package com.github.voidleech.solidglobarbranches.mixin.farmland.bloomplant;
 
-import com.github.voidleech.solidglobarbranches.util.ModdedFarmlandUtil;
+import com.github.voidleech.solidglobarbranches.util.ModdedFarmland;
 import net.mcreator.snifferent.block.BloomPlant4Block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
@@ -17,6 +17,6 @@ public class BloomPlant4Mixin extends DoublePlantBlock {
 
     @Override
     public boolean mayPlaceOn(BlockState state, BlockGetter world, BlockPos pos){
-        return ModdedFarmlandUtil.isFarmland(state);
+        return ModdedFarmland.isFarmland(state);
     }
 }

@@ -5,7 +5,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class ModdedFarmlandUtil {
+public class ModdedFarmland {
     public static Block vanillafyFarmland(Block block){
         if (block instanceof FarmBlock){
             return Blocks.FARMLAND;

@@ -1,6 +1,6 @@
 package com.github.voidleech.solidglobarbranches.mixin.farmland.spineflower;
 
-import com.github.voidleech.solidglobarbranches.util.ModdedFarmlandUtil;
+import com.github.voidleech.solidglobarbranches.util.ModdedFarmland;
 import net.mcreator.snifferent.block.Spineflower2Block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffect;
@@ -20,6 +20,6 @@ public class Spineflower2Mixin extends FlowerBlock {
 
     @Override
     public boolean mayPlaceOn(BlockState state, BlockGetter world, BlockPos pos){
-        return ModdedFarmlandUtil.isFarmland(state);
+        return ModdedFarmland.isFarmland(state);
     }
 }

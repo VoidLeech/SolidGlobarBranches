@@ -1,6 +1,6 @@
 package com.github.voidleech.solidglobarbranches.mixin.farmland.spineflower;
 
-import com.github.voidleech.solidglobarbranches.util.ModdedFarmlandUtil;
+import com.github.voidleech.solidglobarbranches.util.ModdedFarmland;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.mcreator.snifferent.procedures.PlantSpineflowerSeedsProcedure;
 import net.minecraft.world.level.block.Block;
@@ -12,6 +12,6 @@ public class SpineflowerPlacementMixin {
     @ModifyExpressionValue(method="Lnet/mcreator/snifferent/procedures/PlantSpineflowerSeedsProcedure;execute(Lnet/minecraftforge/eventbus/api/Event;Lnet/minecraft/world/level/LevelAccessor;DDDLnet/minecraft/world/entity/Entity;)V",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;getBlock()Lnet/minecraft/world/level/block/Block;"))
     private static Block bgb$moddedFarmlandIsAlsoFarmland(Block original){
-        return ModdedFarmlandUtil.vanillafyFarmland(original);
+        return ModdedFarmland.vanillafyFarmland(original);
     }
 }

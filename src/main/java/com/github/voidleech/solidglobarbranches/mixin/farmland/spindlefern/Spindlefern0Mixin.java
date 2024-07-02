@@ -1,6 +1,6 @@
 package com.github.voidleech.solidglobarbranches.mixin.farmland.spindlefern;
 
-import com.github.voidleech.solidglobarbranches.util.ModdedFarmlandUtil;
+import com.github.voidleech.solidglobarbranches.util.ModdedFarmland;
 import net.mcreator.snifferent.block.Spindlefern0Block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -40,6 +40,6 @@ public class Spindlefern0Mixin extends FlowerBlock implements BonemealableBlock 
 
     @Override
     public boolean mayPlaceOn(BlockState state, BlockGetter world, BlockPos pos){
-        return ModdedFarmlandUtil.isFarmland(state);
+        return ModdedFarmland.isFarmland(state);
     }
 }
