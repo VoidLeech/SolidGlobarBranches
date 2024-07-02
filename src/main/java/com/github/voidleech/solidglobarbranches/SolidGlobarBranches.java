@@ -26,8 +26,6 @@ public class SolidGlobarBranches
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
-
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SolidGlobarBranchesConfig.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)

@@ -5,9 +5,9 @@ import net.mcreator.snifferent.block.GlobarBranchMiddleBlock;
 import net.mcreator.snifferent.init.SnifferentModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -17,7 +17,6 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
@@ -31,6 +30,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.function.Consumer;
+
 @Mixin(GlobarBranchMiddleBlock.class)
 public class GlobarBranchMixin extends Block {
     @Shadow @Final public static DirectionProperty FACING;
@@ -40,7 +41,7 @@ public class GlobarBranchMixin extends Block {
     }
 
     @Inject(method = "<init>", at = @At("TAIL"))
-    private void bgb$branchCollision(CallbackInfo ci){
+    private void sgb$branchCollision(CallbackInfo ci){
         // Sufficient for collision
         this.hasCollision = true;
 
@@ -64,7 +65,8 @@ public class GlobarBranchMixin extends Block {
         };
     }
 
-    // This method might not be fully accurate if chunks aren't loaded
+    // This method might not be fully accurate if chunks aren't loaded, but I haven't seen been able to have that happen in-world in my testing
+    // Tongue-in-cheek, at how long such a branch has to be, I might even call it a feature :p
     @Override
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos){
         if (level instanceof LevelAccessor world){
@@ -139,26 +141,31 @@ public class GlobarBranchMixin extends Block {
     @Override
     public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float distance){
         super.fallOn(level, state, pos, entity, distance);
-        Runnable breakBlock = () -> level.destroyBlock(pos, false);
-
-        if (entity instanceof FallingBlockEntity) {
-            breakBlock.run();
-            return;
-        }
-        if (!(entity instanceof LivingEntity livingEntity) || entity.getType().is(SGBTags.DOESNT_BREAK_BRANCHES)) {
-            return;
-        }
-
         // Break if fall > 2.5 blocks
         float maxFall = 2.5f;
-        // Adjust by feather falling level
-        maxFall *= (1.0f + EnchantmentHelper.getEnchantmentLevel(Enchantments.FALL_PROTECTION, livingEntity));
-        if (distance > maxFall) {
-            breakBlock.run();
-        }
-    }
+        Consumer<Float> breakBlock = (d) -> {
+            if (distance > d) {
+                level.destroyBlock(pos, false);
+            }
+        };
 
-    public PushReaction getPistonPushReaction(){
-        return PushReaction.DESTROY;
+        // By default, non-living entities don't break branches, unless included
+        if (entity.getType().is(SGBTags.NONLIVING_DOES_BREAK_BRANCHES)){
+            breakBlock.accept(maxFall);
+        }
+        if (!(entity instanceof LivingEntity livingEntity)) {
+            return;
+        }
+        // By default, living entities do break branches, unless excluded
+        if (entity.getType().is(SGBTags.LIVING_DOESNT_BREAK_BRANCHES)){
+            return;
+        }
+        if (livingEntity.hasEffect(MobEffects.SLOW_FALLING)){
+            return;
+        }
+
+        // Adjust maximum fall height by feather falling level
+        maxFall *= (1.0f + EnchantmentHelper.getEnchantmentLevel(Enchantments.FALL_PROTECTION, livingEntity));
+        breakBlock.accept(maxFall);
     }
 }

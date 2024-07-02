@@ -1,0 +1,16 @@
+{
+  "values": [
+      "minecraft:minecart"
+    , "minecraft:furnace_minecart"
+    , "minecraft:command_block_minecart"
+    , "minecraft:tnt_minecart"
+    , "minecraft:chest_minecart"
+    , "minecraft:hopper_minecart"
+    , "minecraft:spawner_minecart"
+    , "minecraft:falling_block"
+    , "minecraft:armor_stand"
+    , "minecraft:boat"
+    , "minecraft:chest_boat"
+
+  ]
+}
