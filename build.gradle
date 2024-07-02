@@ -115,7 +115,7 @@ dependencies {
 
     implementation fg.deobf("curse.maven:snifferent-915382:4766051")
 
-    runtimeOnly fg.deobf("curse.maven:aether-255308:5302178")
+    //runtimeOnly fg.deobf("curse.maven:aether-255308:5302178")
 }
 
 mixin {
