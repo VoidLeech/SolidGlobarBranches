@@ -1,5 +1,5 @@
-# Solid Globar Branches - A snifferent addon
-Solid Globar Branches (SGB) does one thing. Make Globar Branches Solid: Collideable, Fun, Better.  
+# Solid Globar Branches - A [snifferent](https://www.curseforge.com/minecraft/mc-mods/snifferent) addon
+Solid Globar Branches does one thing. Make Globar Branches Solid: Collideable, Fun, Better.  
 Or that was the plan, and instead there's a bunch of fixes thrown in too.
 
 ### Features
