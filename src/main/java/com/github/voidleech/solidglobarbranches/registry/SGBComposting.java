@@ -1,12 +1,10 @@
-package com.github.voidleech.solidglobarbranches.util;
+package com.github.voidleech.solidglobarbranches.registry;
 
-import net.mcreator.snifferent.block.AmberBlockBlock;
-import net.mcreator.snifferent.block.AmberGlassBlock;
 import net.mcreator.snifferent.init.SnifferentModItems;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.ComposterBlock;
 
-public class Composting {
+public class SGBComposting {
     public static void addCompostables() {
         add(0.85f, SnifferentModItems.BLOOM_PLANT.get());
         add(0.85f, SnifferentModItems.SPINEFLOWER.get());
@@ -24,6 +22,8 @@ public class Composting {
         add(0.3f, SnifferentModItems.SNIFFBERRY_SEEDLING.get());
         add(0.3f, SnifferentModItems.BLOOM_PLANT_NUT.get());
         add(0.3f, SnifferentModItems.CLUB_MOSS_PATCH.get());
+        add(0.3f, SnifferentModItems.GLOBAR_SAPLING.get());
+        add(0.1f, SnifferentModItems.GLOBAR_BRANCH_MIDDLE.get());
     }
 
     private static void add(float chance, ItemLike item){
