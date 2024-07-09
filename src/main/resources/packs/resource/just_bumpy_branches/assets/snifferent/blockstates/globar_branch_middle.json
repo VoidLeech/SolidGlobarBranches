@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "facing=east": [
+      {
+        "model": "solidglobarbranches:block/globar_branch_bumpy", "y": 90
+      }
+    ],
+    "facing=west": [
+      {
+        "model": "solidglobarbranches:block/globar_branch_bumpy", "y": 270
+      }
+    ],
+    "facing=north": [
+      {
+        "model": "solidglobarbranches:block/globar_branch_bumpy", "y": 0
+      }
+    ],
+    "facing=south": [
+      {
+        "model": "solidglobarbranches:block/globar_branch_bumpy", "y": 180
+      }
+    ]
+  }
+}
