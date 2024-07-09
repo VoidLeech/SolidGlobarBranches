@@ -1,4 +1,8 @@
 # Solid Globar Branches - A [snifferent](https://www.curseforge.com/minecraft/mc-mods/snifferent) addon
+[![Modrinth Downloads](https://img.shields.io/modrinth/dt/solid-globar-branches?style=flat&logo=modrinth&label=Modrinth)](https://modrinth.com/mod/solid-globar-branches)
+[![CurseForge Downloads](https://img.shields.io/curseforge/dt/1056099?style=flat&logo=curseforge&label=Curseforge)](https://www.curseforge.com/minecraft/mc-mods/solid-globar-branches)
+![Modrinth Game Versions](https://cf.way2muchnoise.eu/versions/1056099.svg)
+
 Solid Globar Branches does one thing. Make Globar Branches Solid: Collideable, Fun, Better.  
 Or that was the plan, and instead there's a bunch of fixes thrown in too.
 
