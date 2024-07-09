@@ -1,4 +1,4 @@
-package com.github.voidleech.solidglobarbranches.mixin;
+package com.github.voidleech.solidglobarbranches.mixin.amber;
 
 import net.mcreator.snifferent.block.AmberBlockBlock;
 import net.minecraft.core.BlockPos;
@@ -17,7 +17,9 @@ public class AmberBlockMixin extends Block {
         super(pProperties);
     }
 
-    @Inject(method = "onPlace", at = @At(value = "INVOKE", target = "Lnet/mcreator/snifferent/procedures/AmberGlowingUpdateTickProcedure;execute(Lnet/minecraft/world/level/LevelAccessor;DDD)V", shift = At.Shift.BEFORE), cancellable = true)
+    @Inject(method = "onPlace", at = @At(value = "INVOKE",
+            target = "Lnet/mcreator/snifferent/procedures/AmberGlowingUpdateTickProcedure;execute(Lnet/minecraft/world/level/LevelAccessor;DDD)V",
+            shift = At.Shift.BEFORE), cancellable = true)
     private void sgb$cancelImmediateExecute(BlockState state, Level level, BlockPos pos, BlockState old, boolean b, CallbackInfo ci){
         ci.cancel();
     }

@@ -1,4 +1,4 @@
-package com.github.voidleech.solidglobarbranches.mixin;
+package com.github.voidleech.solidglobarbranches.mixin.potion;
 
 import net.mcreator.snifferent.init.SnifferentModItems;
 import net.mcreator.snifferent.init.SnifferentModPotions;

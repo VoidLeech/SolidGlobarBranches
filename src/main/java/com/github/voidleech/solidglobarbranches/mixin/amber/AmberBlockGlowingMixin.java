@@ -1,4 +1,4 @@
-package com.github.voidleech.solidglobarbranches.mixin;
+package com.github.voidleech.solidglobarbranches.mixin.amber;
 
 import net.mcreator.snifferent.block.AmberGlowingBlock;
 import net.minecraft.core.BlockPos;
