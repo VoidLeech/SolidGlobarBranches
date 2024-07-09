@@ -1,6 +1,8 @@
 package com.github.voidleech.solidglobarbranches.mixin.amber;
 
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.mcreator.snifferent.block.AmberBlockBlock;
+import net.mcreator.snifferent.init.SnifferentModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -27,5 +29,14 @@ public class AmberBlockMixin extends Block {
     @Override
     public int getLightBlock(BlockState state, BlockGetter world, BlockPos pos){
         return 0;
+    }
+
+    @ModifyExpressionValue(method = "skipRendering(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/Direction;)Z",
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;getBlock()Lnet/minecraft/world/level/block/Block;"))
+    private Block sgb$allAmberEqual(Block original){
+        if (original == SnifferentModBlocks.AMBER_GLOWING.get()){
+            return SnifferentModBlocks.AMBER_BLOCK.get();
+        }
+        return original;
     }
 }

@@ -4,8 +4,8 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "mixins.solidglobarbranches.refmap.json",
   "mixins": [
-    "amber.AmberBlockGlowingMixin", "amber.AmberBlockMixin", "sapling.BoneMealSaplingMixin", "ClubMossCarpetMixin", "GlobarBranchMixin",
-    "GlobarSapBottleMixin", "sapling.RandomTickSaplingMixin", "potion.ResistanceRecipeMixin", "potion.SniffingRecipeMixin",
+    "ClubMossCarpetMixin", "GlobarBranchMixin", "GlobarSapBottleMixin", "amber.AmberBlockGlowingMixin",
+    "amber.AmberBlockMixin", "amber.AmberGlassGlowingMixin", "amber.AmberGlassMixin",
     "farmland.bloomplant.BloomPlant0Mixin", "farmland.bloomplant.BloomPlant1Mixin",
     "farmland.bloomplant.BloomPlant2Mixin", "farmland.bloomplant.BloomPlant4Mixin",
     "farmland.bloomplant.BloomPlantPlacementMixin", "farmland.lumibulb.Lumibulb0Mixin",
@@ -14,7 +14,9 @@
     "farmland.spindlefern.Spindlefern1Mixin", "farmland.spindlefern.Spindlefern2Mixin",
     "farmland.spindlefern.Spindlefern3Mixin", "farmland.spindlefern.SpindlefernPlacementMixin",
     "farmland.spineflower.Spineflower0Mixin", "farmland.spineflower.Spineflower1Mixin",
-    "farmland.spineflower.Spineflower2Mixin", "farmland.spineflower.SpineflowerPlacementMixin"
+    "farmland.spineflower.Spineflower2Mixin", "farmland.spineflower.SpineflowerPlacementMixin",
+    "potion.ResistanceRecipeMixin", "potion.SniffingRecipeMixin", "sapling.BoneMealSaplingMixin",
+    "sapling.RandomTickSaplingMixin"
   ],
   "client": [
   ],
