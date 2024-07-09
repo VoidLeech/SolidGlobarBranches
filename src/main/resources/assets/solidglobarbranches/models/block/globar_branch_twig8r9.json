@@ -163,14 +163,14 @@
     {
       "comment": "Cutout of original branch",
       "from": [8, 0, 0],
-      "to": [8, 16, 16],
+      "to": [8, 8, 16],
       "faces": {
         "east": {
-          "uv": [16, 0, 0, 16],
+          "uv": [16, 8, 0, 16],
           "texture": "#particle"
         },
         "west": {
-          "uv": [0, 0, 16, 16],
+          "uv": [0, 8, 16, 16],
           "texture": "#particle"
         }
       }
@@ -190,10 +190,6 @@
         },
         "south": {
           "uv": [5, 0, 0, 1],
-          "texture": "#solid"
-        },
-        "west": {
-          "uv": [0, 0, 1, 1],
           "texture": "#solid"
         },
         "up": {
