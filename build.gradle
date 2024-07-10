@@ -4,7 +4,6 @@ plugins {
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
-    id 'org.spongepowered.mixin' version '0.7.+'
 }
 
 version = mod_version
@@ -32,7 +31,7 @@ minecraft {
     // By default, the folder name of a run configuration is the name of the Gradle project containing it.
     // generateRunFolders = true
 
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
         configureEach {
@@ -103,24 +102,9 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.3.6"))
-    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.3.6")) {
-        jarJar.ranged(it, "[0.3.6,)")
-    }
 
-    // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
-    // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
-    runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
-
-    implementation fg.deobf("curse.maven:snifferent-915382:4766051")
-
-    //runtimeOnly fg.deobf("curse.maven:aether-255308:5302178")
-}
-
-mixin {
-    add sourceSets.main, "mixins.${mod_id}.refmap.json"
-    config "mixins.${mod_id}.json"
+    runtimeOnly fg.deobf("curse.maven:snifferent-915382:4766051")
+    runtimeOnly fg.deobf("curse.maven:modernfix-790626:5512356")
 }
 
 tasks.named('processResources', ProcessResources).configure {
