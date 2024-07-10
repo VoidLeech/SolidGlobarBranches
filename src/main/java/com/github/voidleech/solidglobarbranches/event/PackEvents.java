@@ -18,20 +18,22 @@ import java.util.Map;
 public class PackEvents {
     private static final Map<String, Component> DESCRIPTIONS = Map.of(
             "just_bumpy_branches", Component.literal("Removes twigs from the sides of globar branches"),
-            "straight_branches", Component.literal("Makes globar branches flat and straight"));
+            "straight_branches", Component.literal("Makes globar branches flat and straight"),
+            "solid_globar_branches", Component.literal("snifferent model overrides"));
 
-    public static void addOptionalResourcePacks(AddPackFindersEvent event){
+    public static void addResourcePacks(AddPackFindersEvent event){
         if (event.getPackType() == PackType.CLIENT_RESOURCES){
-            addOptionalResourcePack(event, "just_bumpy_branches");
-            addOptionalResourcePack(event, "straight_branches");
+            addResourcePack(event, "solid_globar_branches", true);
+            addResourcePack(event, "just_bumpy_branches", false);
+            addResourcePack(event, "straight_branches", false);
         }
     }
 
-    private static void addOptionalResourcePack(AddPackFindersEvent event, String packName){
+    private static void addResourcePack(AddPackFindersEvent event, String packName, boolean required){
         Path resourcePath = ModList.get().getModFileById(SolidGlobarBranches.MOD_ID).getFile().findResource("packs/resource/" + packName);
         Pack pack = Pack.create("builtin/" + packName,
-                Component.literal("(SGB) " + WordUtils.capitalize(packName.replace('_', ' ').toLowerCase())),
-                false,
+                Component.literal("(SGB" + (required ? " Alt" : "") + ") " + WordUtils.capitalize(packName.replace('_', ' ').toLowerCase())),
+                required,
                 (path) -> new PathPackResources(path, resourcePath, true),
                 new Pack.Info(DESCRIPTIONS.getOrDefault(packName, Component.empty()), SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES), FeatureFlagSet.of()),
                 PackType.CLIENT_RESOURCES,
