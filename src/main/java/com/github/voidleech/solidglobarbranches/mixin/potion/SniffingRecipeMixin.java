@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class SniffingRecipeMixin {
     @Inject(method = "init", at = @At("HEAD"), cancellable = true, remap = false)
     private static void bgb$recipeViewableSniffingRecipe(FMLCommonSetupEvent event, CallbackInfo ci){
-        PotionBrewing.addMix(Potions.AWKWARD, SnifferentModItems.SNIFFBERRY.get(), SnifferentModPotions.SNIFFING_POTION.get());
+        event.enqueueWork(() -> PotionBrewing.addMix(Potions.AWKWARD, SnifferentModItems.SNIFFBERRY.get(), SnifferentModPotions.SNIFFING_POTION.get()));
         ci.cancel();
     }
 }
