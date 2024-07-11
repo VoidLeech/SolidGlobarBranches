@@ -33,7 +33,7 @@ public class SolidGlobarBranches
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-        SGBComposting.addCompostables();
+        event.enqueueWork(SGBComposting::addCompostables);
     }
 
     @SubscribeEvent
