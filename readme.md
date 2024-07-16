@@ -26,3 +26,6 @@ Or that was the plan, and instead there's a bunch of fixes thrown in too.
 - Globar Sap Bottle now has a glass bottle as crafting remainder.
 - Globar Branches on grown trees now always have the correct 'facing' value.
 - Amber and Amber Glass are now considered equal to their Glowing variants w.r.t. rendering.
+
+### Licensing
+This project is released under the [MIT license](LICENSE).
