@@ -1,4 +1,4 @@
-package com.github.voidleech.solidglobarbranches.mixin;
+package com.github.voidleech.solidglobarbranches.mixin.tree;
 
 import com.github.voidleech.solidglobarbranches.registry.SGBTags;
 import net.mcreator.snifferent.block.GlobarBranchMiddleBlock;

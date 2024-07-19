@@ -1,4 +1,4 @@
-package com.github.voidleech.solidglobarbranches.mixin.sapling;
+package com.github.voidleech.solidglobarbranches.mixin.tree;
 
 import net.mcreator.snifferent.procedures.BonemealGlobarProcedure;
 import net.minecraft.core.Direction;

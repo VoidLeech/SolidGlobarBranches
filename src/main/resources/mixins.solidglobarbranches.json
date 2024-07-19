@@ -4,8 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "mixins.solidglobarbranches.refmap.json",
   "mixins": [
-    "ClubMossCarpetMixin", "GlobarBranchMixin", "GlobarSapBottleMixin", "amber.AmberBlockGlowingMixin",
-    "amber.AmberBlockMixin", "amber.AmberGlassGlowingMixin", "amber.AmberGlassMixin",
+    "amber.AmberBlockGlowingMixin", "amber.AmberBlockMixin", "amber.AmberGlassGlowingMixin", "amber.AmberGlassMixin",
     "farmland.bloomplant.BloomPlant0Mixin", "farmland.bloomplant.BloomPlant1Mixin",
     "farmland.bloomplant.BloomPlant2Mixin", "farmland.bloomplant.BloomPlant4Mixin",
     "farmland.bloomplant.BloomPlantPlacementMixin", "farmland.lumibulb.Lumibulb0Mixin",
@@ -15,8 +14,10 @@
     "farmland.spindlefern.Spindlefern3Mixin", "farmland.spindlefern.SpindlefernPlacementMixin",
     "farmland.spineflower.Spineflower0Mixin", "farmland.spineflower.Spineflower1Mixin",
     "farmland.spineflower.Spineflower2Mixin", "farmland.spineflower.SpineflowerPlacementMixin",
-    "potion.ResistanceRecipeMixin", "potion.SniffingRecipeMixin", "sapling.BoneMealSaplingMixin",
-    "sapling.RandomTickSaplingMixin"
+    "misc.ClubMossCarpetMixin", "misc.GlobarSapBottleMixin", "potion.ResistanceRecipeMixin",
+    "potion.SniffingRecipeMixin", "tree.BoneMealSaplingMixin", "tree.GlobarBranchMixin", "tree.PorusLog1Mixin",
+    "tree.PorusLog2Mixin", "tree.RandomTickSaplingMixin", "vines.SniffberryVine0Mixin", "vines.SniffberryVine1Mixin",
+    "vines.SniffberryVine2Mixin", "vines.SniffberryVine3Mixin", "vines.SniffberryVine4Mixin"
   ],
   "client": [
   ],

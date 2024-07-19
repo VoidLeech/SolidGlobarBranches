@@ -1,4 +1,4 @@
-package com.github.voidleech.solidglobarbranches.mixin.sapling;
+package com.github.voidleech.solidglobarbranches.mixin.tree;
 
 import net.mcreator.snifferent.procedures.TwistingGlobarBranchUpdateTickProcedure;
 import net.minecraft.core.Direction;

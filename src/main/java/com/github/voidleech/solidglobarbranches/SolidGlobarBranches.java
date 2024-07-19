@@ -19,7 +19,7 @@ import org.slf4j.Logger;
 public class SolidGlobarBranches
 {
     public static final String MOD_ID = "solidglobarbranches";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public SolidGlobarBranches()
     {

@@ -1,4 +1,4 @@
-package com.github.voidleech.solidglobarbranches.mixin;
+package com.github.voidleech.solidglobarbranches.mixin.misc;
 
 import net.mcreator.snifferent.item.GlobarSapBottleItem;
 import net.minecraft.world.item.Item;
