@@ -37,7 +37,7 @@ public class SniffberryVine0Mixin extends Block implements BonemealableBlock {
     public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
         super.tick(pState, pLevel, pPos, pRandom);
         if (pRandom.nextDouble() > 0.067){
-            VineGrowing.growVine(pLevel, pRandom, pPos, pState);
+            VineGrowing.growVine(pLevel, pRandom, pPos, pState, false);
         }
     }
 }
