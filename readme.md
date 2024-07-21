@@ -16,7 +16,7 @@ Or that was the plan, and instead there's a bunch of fixes thrown in too.
 - Globar Branches (in block form) now count as logs for better compat with tree-cutting mods.
 - Porus Globar Logs are now obtainable with Silk Touch, as they are already movable with pistons so there's really no harm making them obtainable.
 - Sniffberry vines can now be bone-mealed, which allows them to grow beyond the random max height (you can also break and replant to get a new random max height).
-- Sniffberry vines can now be trimmed to prevent them from growing.
+- Sniffberry vines can now be trimmed (with shears) to prevent them from growing.
 - Sniffberries can now be harvested via right click.
 
 ### Fixes
