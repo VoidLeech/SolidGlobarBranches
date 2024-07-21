@@ -15,6 +15,9 @@ Or that was the plan, and instead there's a bunch of fixes thrown in too.
 - JEED Compat
 - Globar Branches (in block form) now count as logs for better compat with tree-cutting mods.
 - Porus Globar Logs are now obtainable with Silk Touch, as they are already movable with pistons so there's really no harm making them obtainable.
+- Sniffberry vines can now be bone-mealed, which allows them to grow beyond the random max height (you can also break and replant to get a new random max height).
+- Sniffberry vines can now be trimmed to prevent them from growing.
+- Sniffberries can now be harvested via right click.
 
 ### Fixes
 - snifferent's potion recipes are now viewable in recipe viewers like JEI.
@@ -22,10 +25,15 @@ Or that was the plan, and instead there's a bunch of fixes thrown in too.
 - All of snifferent's flower crops can now be planted on modded farmland.
 - Amber Block now properly switches to its glowing (light-emitting) variant.
 - Most snifferent items are now compostable.
-- Globar Branch is now useable as furnace fuel.
+- Globar Branch is now usable as furnace fuel.
 - Globar Sap Bottle now has a glass bottle as crafting remainder.
 - Globar Branches on grown trees now always have the correct 'facing' value.
 - Amber and Amber Glass are now considered equal to their Glowing variants w.r.t. rendering.
+- Porus Globar Logs with Globar Sap in them now have the Porus Globar Log as pick-block item.
+
+### F.A.Q.
+**Q: Can this be used in my modpack?**  
+A: Yes.
 
 ### Licensing
 This project is released under the [MIT license](LICENSE).
