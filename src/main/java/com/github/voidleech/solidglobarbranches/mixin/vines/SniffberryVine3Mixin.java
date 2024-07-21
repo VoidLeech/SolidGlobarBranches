@@ -1,15 +1,21 @@
 package com.github.voidleech.solidglobarbranches.mixin.vines;
 
+import com.github.voidleech.solidglobarbranches.registry.SGBTags;
 import com.github.voidleech.solidglobarbranches.util.VineGrowing;
 import net.mcreator.snifferent.block.SightberryVine3Block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -42,6 +48,20 @@ public class SniffberryVine3Mixin extends Block implements BonemealableBlock {
         if (pRandom.nextDouble() > 0.067){
             VineGrowing.growVine(pLevel, pRandom, pPos, pState, false);
         }
+    }
+
+    @Override
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if (SGBTags.isShears(pPlayer.getItemInHand(pHand).getItem())){
+            BlockEntity be = pLevel.getBlockEntity(pPos);
+            if (be.getPersistentData().getBoolean("trimmed")){
+                return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
+            }
+            pPlayer.getItemInHand(pHand).hurtAndBreak(1, pPlayer, (p) -> p.broadcastBreakEvent(pHand));
+            be.getPersistentData().putBoolean("trimmed", true);
+            return InteractionResult.sidedSuccess(pLevel.isClientSide);
+        }
+        return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
     }
 
     @Inject(method = "neighborChanged",

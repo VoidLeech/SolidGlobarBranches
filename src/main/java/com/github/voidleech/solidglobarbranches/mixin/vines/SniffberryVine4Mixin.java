@@ -1,5 +1,6 @@
 package com.github.voidleech.solidglobarbranches.mixin.vines;
 
+import com.github.voidleech.solidglobarbranches.registry.SGBTags;
 import com.github.voidleech.solidglobarbranches.util.VineGrowing;
 import net.mcreator.snifferent.block.SightberryVine4Block;
 import net.mcreator.snifferent.init.SnifferentModBlocks;
@@ -14,10 +15,12 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.ShearsItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.BlockHitResult;
@@ -75,6 +78,15 @@ public class SniffberryVine4Mixin extends Block implements BonemealableBlock {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (pPlayer.getItemInHand(pHand).getItem() == Items.BONE_MEAL){
             return InteractionResult.PASS;
+        }
+        if (SGBTags.isShears(pPlayer.getItemInHand(pHand).getItem())){
+            BlockEntity be = pLevel.getBlockEntity(pPos);
+            if (be.getPersistentData().getBoolean("trimmed")){
+                return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
+            }
+            pPlayer.getItemInHand(pHand).hurtAndBreak(1, pPlayer, (p) -> p.broadcastBreakEvent(pHand));
+            be.getPersistentData().putBoolean("trimmed", true);
+            return InteractionResult.sidedSuccess(pLevel.isClientSide);
         }
         popResource(pLevel, pPos, new ItemStack(SnifferentModItems.SNIFFBERRY.get()));
         pLevel.playSound(null, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0f, 0.8f + pLevel.getRandom().nextFloat() * 0.4f);

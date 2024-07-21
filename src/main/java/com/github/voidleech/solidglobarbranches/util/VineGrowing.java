@@ -2,6 +2,7 @@ package com.github.voidleech.solidglobarbranches.util;
 
 import net.mcreator.snifferent.init.SnifferentModBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Blocks;
@@ -37,8 +38,8 @@ public class VineGrowing {
             BlockEntity newBE = serverLevel.getBlockEntity(blockPos);
             // Can only be grown on Club Moss, so height 1 is safe
             newBE.getPersistentData().putInt("height", 1);
-            // Generate a random max height
-            newBE.getPersistentData().putInt("maxHeight", (int)randomSource.triangle(3, 9));
+            // Generate a random max height. Due to casting to int, will generally be between 4 and 9, rarely 3 or 10, 11 possible (depending on the implementation of random) as freak value.
+            newBE.getPersistentData().putInt("maxHeight", (int)randomSource.triangle(7, 4));
             return;
         }
         if (blockState.getBlock() == SnifferentModBlocks.SNIFFBERRY_VINE_2.get()){
@@ -65,27 +66,31 @@ public class VineGrowing {
         }
     }
 
-    // Hijack the BE system in snifferent to pass the height and a random max height because adding additional blockstates via Mixinss results in crashes during boot D:
+    // Hijack the BE system in snifferent to pass the height and a random max height, and whether the vine is trimmed, because adding additional blockstates via Mixins results in crashes during boot D:
     private static void advanceStageWithBE(ServerLevel serverLevel, BlockPos blockPos, BlockState newState) {
         BlockEntity initialBE = serverLevel.getBlockEntity(blockPos);
         int height = initialBE.getPersistentData().getInt("height");
         int maxHeight = initialBE.getPersistentData().getInt("maxHeight");
+        boolean trimmed = initialBE.getPersistentData().getBoolean("trimmed");
         serverLevel.setBlock(blockPos, newState, 3);
         BlockEntity newBE = serverLevel.getBlockEntity(blockPos);
         newBE.getPersistentData().putInt("height", height);
         newBE.getPersistentData().putInt("maxHeight", maxHeight);
+        newBE.getPersistentData().putBoolean("trimmed", trimmed);
     }
 
     private static void growAboveWithBE(ServerLevel serverLevel, BlockPos blockPos, boolean forcedGrowth) {
         BlockEntity initialBE = serverLevel.getBlockEntity(blockPos);
         int height = initialBE.getPersistentData().getInt("height");
         int maxHeight = initialBE.getPersistentData().getInt("maxHeight");
-        if (height >= maxHeight && !forcedGrowth) {
+        boolean trimmed = initialBE.getPersistentData().getBoolean("trimmed");
+        if ((trimmed || height >= maxHeight) && !forcedGrowth) {
             return;
         }
         serverLevel.setBlock(blockPos.above(), SnifferentModBlocks.SNIFFBERRY_VINE_2.get().defaultBlockState(), 3);
         BlockEntity newBE = serverLevel.getBlockEntity(blockPos.above());
         newBE.getPersistentData().putInt("height", height + 1);
         newBE.getPersistentData().putInt("maxHeight", maxHeight);
+        newBE.getPersistentData().putBoolean("trimmed", trimmed);
     }
 }
