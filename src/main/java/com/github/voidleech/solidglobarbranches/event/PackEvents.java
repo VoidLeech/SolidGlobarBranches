@@ -32,7 +32,7 @@ public class PackEvents {
     private static void addResourcePack(AddPackFindersEvent event, String packName, boolean required){
         Path resourcePath = ModList.get().getModFileById(SolidGlobarBranches.MOD_ID).getFile().findResource("packs/resource/" + packName);
         Pack pack = Pack.create("builtin/" + packName,
-                Component.literal("(SGB" + (required ? " Alt" : "") + ") " + WordUtils.capitalize(packName.replace('_', ' ').toLowerCase())),
+                Component.literal("(SGB" + (!required ? " Alt" : "") + ") " + WordUtils.capitalize(packName.replace('_', ' ').toLowerCase())),
                 required,
                 (path) -> new PathPackResources(path, resourcePath, true),
                 new Pack.Info(DESCRIPTIONS.getOrDefault(packName, Component.empty()), SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES), FeatureFlagSet.of()),
