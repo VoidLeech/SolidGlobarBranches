@@ -32,7 +32,7 @@ Or that was the plan, and instead there's a bunch of fixes thrown in too.
 - Porus Globar Logs with Globar Sap in them now have the Porus Globar Log as pick-block item.
 
 ### F.A.Q.
-**Q: Can this be used in my modpack?**  
+**Q: Can this be used in my CurseForge/Modrinth modpack?**  
 A: Yes.
 
 ### Licensing
