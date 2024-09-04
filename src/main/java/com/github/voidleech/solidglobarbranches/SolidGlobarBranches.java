@@ -1,6 +1,5 @@
 package com.github.voidleech.solidglobarbranches;
 
-import com.github.voidleech.solidglobarbranches.event.PackEvents;
 import com.github.voidleech.solidglobarbranches.registry.SGBComposting;
 import com.github.voidleech.solidglobarbranches.registry.SGBFuel;
 import com.github.voidleech.solidglobarbranches.registry.SGBPacks;
