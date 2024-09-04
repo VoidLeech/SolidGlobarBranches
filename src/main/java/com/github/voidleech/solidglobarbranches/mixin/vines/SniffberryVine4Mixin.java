@@ -37,7 +37,7 @@ public class SniffberryVine4Mixin extends Block implements BonemealableBlock {
     }
 
     @Inject(method = "<init>", at = @At("TAIL"))
-    void sgb$enableRandomTicks(CallbackInfo ci){
+    void solidglobarbranches$enableRandomTicks(CallbackInfo ci){
         this.isRandomlyTicking = true;
 
         // Adjust this.properties in case another mod needs this.properties to be accurate
@@ -94,9 +94,9 @@ public class SniffberryVine4Mixin extends Block implements BonemealableBlock {
     }
 
     @Inject(method = "neighborChanged",
-            at = @At(value = "INVOKE", target = "Lnet/mcreator/snifferent/procedures/SightberryVineChangeProcedure;execute(Lnet/minecraft/world/level/LevelAccessor;DDD)V", shift = At.Shift.BEFORE),
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/Block;neighborChanged(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/Block;Lnet/minecraft/core/BlockPos;Z)V", shift = At.Shift.AFTER),
             cancellable = true)
-    private void sgb$cancelWeirdUpdate(BlockState blockstate, Level world, BlockPos pos, Block neighborBlock, BlockPos fromPos, boolean moving, CallbackInfo ci){
+    private void solidglobarbranches$cancelWeirdUpdate(BlockState blockstate, Level world, BlockPos pos, Block neighborBlock, BlockPos fromPos, boolean moving, CallbackInfo ci){
         ci.cancel();
     }
 }

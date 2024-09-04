@@ -44,7 +44,7 @@ public class VineGrowing {
             advanceStageWithBE(serverLevel, blockPos, SnifferentModBlocks.SNIFFBERRY_VINE_3.get().defaultBlockState());
             return;
         }
-        if (blockPos.above().getY() <= serverLevel.getMaxBuildHeight() && serverLevel.isEmptyBlock(blockPos.above())){
+        if (serverLevel.isEmptyBlock(blockPos.above())){
             if (blockState.getBlock() == SnifferentModBlocks.SNIFFBERRY_VINE_3.get()){
                 if (randomSource.nextBoolean()){
                     advanceStageWithBE(serverLevel, blockPos, SnifferentModBlocks.SNIFFBERRY_VINE_4.get().defaultBlockState());
@@ -78,6 +78,9 @@ public class VineGrowing {
     }
 
     private static void growAboveWithBE(ServerLevel serverLevel, BlockPos blockPos, boolean forcedGrowth) {
+        if (blockPos.above().getY() >= serverLevel.getMaxBuildHeight()){
+            return;
+        }
         BlockEntity initialBE = serverLevel.getBlockEntity(blockPos);
         int height = initialBE.getPersistentData().getInt("height");
         int maxHeight = initialBE.getPersistentData().getInt("maxHeight");

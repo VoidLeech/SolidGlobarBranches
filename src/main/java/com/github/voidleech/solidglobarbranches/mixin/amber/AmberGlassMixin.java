@@ -15,7 +15,7 @@ public class AmberGlassMixin extends Block {
 
     @ModifyExpressionValue(method = "skipRendering(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/Direction;)Z",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;getBlock()Lnet/minecraft/world/level/block/Block;"))
-    private Block sgb$allAmberGlassEqual(Block original){
+    private Block solidglobarbranches$allAmberGlassEqual(Block original){
         if (original == SnifferentModBlocks.AMBER_GLASS_GLOWING.get()){
             return SnifferentModBlocks.AMBER_GLASS.get();
         }

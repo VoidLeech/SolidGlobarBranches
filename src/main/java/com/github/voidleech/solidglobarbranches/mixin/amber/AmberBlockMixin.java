@@ -20,9 +20,9 @@ public class AmberBlockMixin extends Block {
     }
 
     @Inject(method = "onPlace", at = @At(value = "INVOKE",
-            target = "Lnet/mcreator/snifferent/procedures/AmberGlowingUpdateTickProcedure;execute(Lnet/minecraft/world/level/LevelAccessor;DDD)V",
-            shift = At.Shift.BEFORE), cancellable = true)
-    private void sgb$cancelImmediateExecute(BlockState state, Level level, BlockPos pos, BlockState old, boolean b, CallbackInfo ci){
+            target = "Lnet/minecraft/world/level/Level;scheduleTick(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/Block;I)V",
+            shift = At.Shift.AFTER), cancellable = true)
+    private void solidglobarbranches$cancelImmediateExecute(BlockState state, Level level, BlockPos pos, BlockState old, boolean b, CallbackInfo ci){
         ci.cancel();
     }
 
@@ -33,7 +33,7 @@ public class AmberBlockMixin extends Block {
 
     @ModifyExpressionValue(method = "skipRendering(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/Direction;)Z",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;getBlock()Lnet/minecraft/world/level/block/Block;"))
-    private Block sgb$allAmberEqual(Block original){
+    private Block solidglobarbranches$allAmberEqual(Block original){
         if (original == SnifferentModBlocks.AMBER_GLOWING.get()){
             return SnifferentModBlocks.AMBER_BLOCK.get();
         }

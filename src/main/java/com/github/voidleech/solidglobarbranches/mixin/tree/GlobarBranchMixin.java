@@ -41,7 +41,7 @@ public class GlobarBranchMixin extends Block {
     }
 
     @Inject(method = "<init>", at = @At("TAIL"), remap = false)
-    private void sgb$branchCollision(CallbackInfo ci){
+    private void solidglobarbranches$branchCollision(CallbackInfo ci){
         // Sufficient for collision
         this.hasCollision = true;
 

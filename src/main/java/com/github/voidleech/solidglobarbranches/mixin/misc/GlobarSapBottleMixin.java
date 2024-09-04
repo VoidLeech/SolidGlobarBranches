@@ -14,8 +14,8 @@ public class GlobarSapBottleMixin extends Item {
         super(pProperties);
     }
 
-    @Inject(method = "<init>", at = @At("TAIL"), remap = false)
-    private void sgb$bottleRemainder(CallbackInfo ci){
+    @Inject(method = "<init>", at = @At("TAIL"))
+    private void solidglobarbranches$bottleRemainder(CallbackInfo ci){
         this.craftingRemainingItem = Items.GLASS_BOTTLE;
     }
 }

@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(BrewResistancePotionBrewingRecipe.class)
 public class ResistanceRecipeMixin {
     @Inject(method = "init", at = @At("HEAD"), cancellable = true, remap = false)
-    private static void bgb$recipeViewableResistanceRecipe(FMLCommonSetupEvent event, CallbackInfo ci){
+    private static void solidglobarbranches$recipeViewableResistanceRecipe(FMLCommonSetupEvent event, CallbackInfo ci){
         event.enqueueWork(() -> PotionBrewing.addMix(Potions.AWKWARD, SnifferentModItems.TUBER_FRUIT.get(), SnifferentModPotions.RESISTANCE_POTION.get()));
         ci.cancel();
     }
