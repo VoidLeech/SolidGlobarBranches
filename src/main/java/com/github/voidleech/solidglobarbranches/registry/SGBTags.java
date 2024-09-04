@@ -5,10 +5,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.tags.ITagManager;
 
 public class SGBTags {
     public static final TagKey<EntityType<?>> LIVING_DOESNT_BREAK_BRANCHES = self(ForgeRegistries.ENTITY_TYPES, "living_doesnt_break_branches");

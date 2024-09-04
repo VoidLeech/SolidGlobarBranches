@@ -3,8 +3,6 @@ package com.github.voidleech.solidglobarbranches.registry;
 import com.github.voidleech.oblivion.registry.OblivionComposting;
 import net.mcreator.snifferent.init.SnifferentModItems;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.registries.RegistryObject;
 
 public class SGBComposting {
