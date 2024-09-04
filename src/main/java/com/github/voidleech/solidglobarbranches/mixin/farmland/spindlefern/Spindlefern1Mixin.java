@@ -1,6 +1,6 @@
 package com.github.voidleech.solidglobarbranches.mixin.farmland.spindlefern;
 
-import com.github.voidleech.solidglobarbranches.util.ModdedFarmland;
+import com.github.voidleech.solidglobarbranches.reimagined.ModdedFarmland;
 import net.mcreator.snifferent.block.Spindlefern1Block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;

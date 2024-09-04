@@ -1,6 +1,6 @@
 package com.github.voidleech.solidglobarbranches.mixin.farmland.spindlefern;
 
-import com.github.voidleech.solidglobarbranches.util.ModdedFarmland;
+import com.github.voidleech.solidglobarbranches.reimagined.ModdedFarmland;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.mcreator.snifferent.procedures.PlantSpindlefernSeedsProcedure;
 import net.minecraft.world.level.block.Block;

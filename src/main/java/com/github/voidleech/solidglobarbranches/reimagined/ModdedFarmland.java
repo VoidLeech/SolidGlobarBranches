@@ -1,4 +1,4 @@
-package com.github.voidleech.solidglobarbranches.util;
+package com.github.voidleech.solidglobarbranches.reimagined;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;

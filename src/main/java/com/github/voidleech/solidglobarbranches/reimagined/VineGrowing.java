@@ -1,11 +1,9 @@
-package com.github.voidleech.solidglobarbranches.util;
+package com.github.voidleech.solidglobarbranches.reimagined;
 
 import net.mcreator.snifferent.init.SnifferentModBlocks;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -13,7 +11,7 @@ public class VineGrowing {
 
     public static void performBoneMeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState, Runnable popBerries) {
         if (blockState.getBlock() == SnifferentModBlocks.SNIFFBERRY_VINE_4.get()){
-            if (serverLevel.getBlockState(blockPos.above()).getBlock() != Blocks.AIR || randomSource.nextBoolean()){
+            if (serverLevel.isEmptyBlock(blockPos.above()) && randomSource.nextBoolean()){
                 popBerries.run();
                 return;
             }
@@ -46,7 +44,7 @@ public class VineGrowing {
             advanceStageWithBE(serverLevel, blockPos, SnifferentModBlocks.SNIFFBERRY_VINE_3.get().defaultBlockState());
             return;
         }
-        if (serverLevel.getBlockState(blockPos.above()).getBlock() == Blocks.AIR){
+        if (blockPos.above().getY() <= serverLevel.getMaxBuildHeight() && serverLevel.isEmptyBlock(blockPos.above())){
             if (blockState.getBlock() == SnifferentModBlocks.SNIFFBERRY_VINE_3.get()){
                 if (randomSource.nextBoolean()){
                     advanceStageWithBE(serverLevel, blockPos, SnifferentModBlocks.SNIFFBERRY_VINE_4.get().defaultBlockState());

@@ -1,7 +1,7 @@
 package com.github.voidleech.solidglobarbranches.mixin.vines;
 
 import com.github.voidleech.solidglobarbranches.registry.SGBTags;
-import com.github.voidleech.solidglobarbranches.util.VineGrowing;
+import com.github.voidleech.solidglobarbranches.reimagined.VineGrowing;
 import net.mcreator.snifferent.block.SightberryVine4Block;
 import net.mcreator.snifferent.init.SnifferentModBlocks;
 import net.mcreator.snifferent.init.SnifferentModItems;
@@ -15,7 +15,6 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.ShearsItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;

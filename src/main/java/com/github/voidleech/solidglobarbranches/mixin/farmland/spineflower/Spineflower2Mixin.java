@@ -1,6 +1,6 @@
 package com.github.voidleech.solidglobarbranches.mixin.farmland.spineflower;
 
-import com.github.voidleech.solidglobarbranches.util.ModdedFarmland;
+import com.github.voidleech.solidglobarbranches.reimagined.ModdedFarmland;
 import net.mcreator.snifferent.block.Spineflower2Block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffect;

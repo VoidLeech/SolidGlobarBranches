@@ -1,6 +1,6 @@
 package com.github.voidleech.solidglobarbranches.mixin.farmland.lumibulb;
 
-import com.github.voidleech.solidglobarbranches.util.ModdedFarmland;
+import com.github.voidleech.solidglobarbranches.reimagined.ModdedFarmland;
 import net.mcreator.snifferent.block.Lumibulb3Block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffect;

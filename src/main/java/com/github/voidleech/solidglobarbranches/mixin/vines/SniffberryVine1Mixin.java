@@ -1,6 +1,6 @@
 package com.github.voidleech.solidglobarbranches.mixin.vines;
 
-import com.github.voidleech.solidglobarbranches.util.VineGrowing;
+import com.github.voidleech.solidglobarbranches.reimagined.VineGrowing;
 import net.mcreator.snifferent.block.SightberryVine1Block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;

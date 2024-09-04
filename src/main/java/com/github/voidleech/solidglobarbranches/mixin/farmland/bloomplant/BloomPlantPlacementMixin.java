@@ -1,6 +1,6 @@
 package com.github.voidleech.solidglobarbranches.mixin.farmland.bloomplant;
 
-import com.github.voidleech.solidglobarbranches.util.ModdedFarmland;
+import com.github.voidleech.solidglobarbranches.reimagined.ModdedFarmland;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.mcreator.snifferent.procedures.PlantBloomPlantNutProcedure;
 import net.minecraft.world.level.block.Block;
