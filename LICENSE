@@ -1,7 +1,42 @@
+Avoiding Leeching License
+Version 1.0, 31-08-2024
+
 Copyright (c) 2024 VoidLeech
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+This License Agreement is made between the author(s) of the Software and its associated files (the Software) and any party that obtains a copy of the Software. By using the Software, the party agrees to be bound to the terms and conditions of this Agreement.
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
+1. Definitions
+Restricted Content
+  Any source files or directories (and any files or directories in said directories, and so on) listed (or described with the '*' wildcard) in the accompanying RESTRICTED-CONTENT file, as well as object files compiled from such source files. In absence of a RESTRICTED-CONTENT file, all of the Software is Restricted Content.
+Compete
+  Any project providing the same or similar functionality as the Software, targeting the same or a similar user base, is said to Compete with the Software. This includes, but is not limited to, any project that directly substitutes functionality of the Software.
+Official Sources
+  Any distribution channel through which the author(s) release(s) copies of the Software.
+2. License Grants
+Permission is hereby granted to any person obtaining a copy of the Software to:
+2.1 Usage
+Use the Software in private, provided that:
+- The Software is not being used as input or training material for generative artificial intelligence.
+Use the Software in public, such as in monetized media or as a software dependency, provided that:
+- The Software is not being used as input or training material for generative artificial intelligence.
+- The used copy of the Software is obtained from Official Sources.
+2.2 Copying
+Copy the Software for private use, or to contribute to the Software.
+Copy any portion (the Adaptation) of the Software into another project (the Project), provided that:
+- The Adaptation is not Restricted Content.
+- The Project does not Compete with the Software.
+- In the Project, is is clearly marked where the Adaptation begins and ends.
+2.3 Modification
+Modify the Software for private use, or to contribute to the Software.
+Modify Adaptations.
+2.4 Distribution
+Share copies of the Software with a small number of individuals, such as friends or family, provided that:
+- The shared copy is not a copy directly obtainable from Official Sources.
+- The sharing does not involve any kind of financial compensation.
+- The shared copy is not made available or accessible to the general public.
+Share projects containing Adaptations, including with financial compensation, provided:
+- The license any such project is released under does not allow the copying, modification, or distribution of the Adaptations.
+3. Attribution
+The above copyright notice and these conditions must be included in all copies or substantial portions of the Software.
+4. Warranty
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

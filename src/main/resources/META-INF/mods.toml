@@ -8,9 +8,9 @@ modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
 # A URL to query for updates for this mod. See the JSON update specification https://docs.minecraftforge.net/en/latest/misc/updatechecker/
-#updateJSONURL="https://change.me.example.invalid/updates.json" #optional
+updateJSONURL="https://raw.githubusercontent.com/VoidLeech/vl-mod-versioning/main/solidglobarbranches.json" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
-#displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
+displayURL="https://github.com/VoidLeech/SolidGlobarBranches" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="sgb-icon.png" #optional
 # A text field displayed in the mod UI
@@ -45,6 +45,12 @@ description='''${mod_description}'''
     mandatory=true
     versionRange="[1.0.3,)"
     ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="oblivion_api"
+    mandatory=true
+    versionRange="[${oblivion_version},)"
+    ordering="NONE"
     side="BOTH"
 
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares

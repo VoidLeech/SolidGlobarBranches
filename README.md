@@ -6,6 +6,9 @@
 Solid Globar Branches does one thing. Make Globar Branches Solid: Collideable, Fun, Better.  
 Or that was the plan, and instead there's a bunch of fixes thrown in too.
 
+[![Oblivion](https://raw.githubusercontent.com/VoidLeech/Oblivion/1.20.1/forge/src/main/resources/icon.png)](https://github.com/VoidLeech/Oblivion)  
+Requires Oblivion.
+
 ### Features
 - Globar Branches now have a unique 3D model, to reflect the fact that they're now fully collideable. You can walk on them!
 - Globar Branches don't float anymore; they require a solid blockface to hang on, or another Globar Branch.
@@ -32,8 +35,9 @@ Or that was the plan, and instead there's a bunch of fixes thrown in too.
 - Porus Globar Logs with Globar Sap in them now have the Porus Globar Log as pick-block item.
 
 ### F.A.Q.
-**Q: Can this be used in my CurseForge/Modrinth modpack?**  
-A: Yes.
+**Q: Can this be used in my modpack?**  
+A: Yes, but do note our license does not allow directly including the mod files in your pack.
 
 ### Licensing
-This project is released under the [MIT license](LICENSE).
+This project is released under the [Avoiding Leeching License, version 1.0](LICENSE).  
+Special permission is granted to Lixir, the developer of snifferent, to use, copy, modify, share, and deal in the mod's code and assets, but not the branding, as he sees fit, exclusively for the purpose of improving snifferent, with no further restrictions.
