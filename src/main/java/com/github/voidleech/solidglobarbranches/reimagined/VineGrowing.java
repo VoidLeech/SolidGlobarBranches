@@ -2,6 +2,7 @@ package com.github.voidleech.solidglobarbranches.reimagined;
 
 import net.mcreator.snifferent.init.SnifferentModBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -28,11 +29,11 @@ public class VineGrowing {
     // 4 -> 4 + 2 always
     public static void growVine(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState, boolean forcedGrowth) {
         if (blockState.getBlock() == SnifferentModBlocks.SNIFFBERRY_VINE_0.get()){
-            serverLevel.setBlock(blockPos, SnifferentModBlocks.SNIFFBERRY_VINE_1.get().defaultBlockState(), 3);
+            serverLevel.setBlockAndUpdate(blockPos, SnifferentModBlocks.SNIFFBERRY_VINE_1.get().defaultBlockState());
             return;
         }
         if (blockState.getBlock() == SnifferentModBlocks.SNIFFBERRY_VINE_1.get()){
-            serverLevel.setBlock(blockPos, SnifferentModBlocks.SNIFFBERRY_VINE_2.get().defaultBlockState(), 3);
+            serverLevel.setBlockAndUpdate(blockPos, SnifferentModBlocks.SNIFFBERRY_VINE_2.get().defaultBlockState());
             BlockEntity newBE = serverLevel.getBlockEntity(blockPos);
             // Can only be grown on Club Moss, so height 1 is safe
             newBE.getPersistentData().putInt("height", 1);
@@ -67,14 +68,17 @@ public class VineGrowing {
     // Hijack the BE system in snifferent to pass the height and a random max height, and whether the vine is trimmed, because adding additional blockstates via Mixins results in crashes during boot D:
     private static void advanceStageWithBE(ServerLevel serverLevel, BlockPos blockPos, BlockState newState) {
         BlockEntity initialBE = serverLevel.getBlockEntity(blockPos);
-        int height = initialBE.getPersistentData().getInt("height");
-        int maxHeight = initialBE.getPersistentData().getInt("maxHeight");
-        boolean trimmed = initialBE.getPersistentData().getBoolean("trimmed");
-        serverLevel.setBlock(blockPos, newState, 3);
+        CompoundTag tag = initialBE.getPersistentData();
+        int height = tag.getInt("height");
+        int maxHeight = tag.getInt("maxHeight");
+        boolean trimmed = tag.getBoolean("trimmed");
+        serverLevel.setBlockAndUpdate(blockPos, newState);
         BlockEntity newBE = serverLevel.getBlockEntity(blockPos);
-        newBE.getPersistentData().putInt("height", height);
-        newBE.getPersistentData().putInt("maxHeight", maxHeight);
-        newBE.getPersistentData().putBoolean("trimmed", trimmed);
+        CompoundTag newTag = newBE.getPersistentData();
+        newTag.putInt("height", height);
+        newTag.putInt("maxHeight", maxHeight);
+        newTag.putBoolean("trimmed", trimmed);
+        newBE.setChanged();
     }
 
     private static void growAboveWithBE(ServerLevel serverLevel, BlockPos blockPos, boolean forcedGrowth) {
@@ -82,16 +86,19 @@ public class VineGrowing {
             return;
         }
         BlockEntity initialBE = serverLevel.getBlockEntity(blockPos);
-        int height = initialBE.getPersistentData().getInt("height");
-        int maxHeight = initialBE.getPersistentData().getInt("maxHeight");
-        boolean trimmed = initialBE.getPersistentData().getBoolean("trimmed");
+        CompoundTag tag = initialBE.getPersistentData();
+        int height = tag.getInt("height");
+        int maxHeight = tag.getInt("maxHeight");
+        boolean trimmed = tag.getBoolean("trimmed");
         if ((trimmed || height >= maxHeight) && !forcedGrowth) {
             return;
         }
-        serverLevel.setBlock(blockPos.above(), SnifferentModBlocks.SNIFFBERRY_VINE_2.get().defaultBlockState(), 3);
+        serverLevel.setBlockAndUpdate(blockPos.above(), SnifferentModBlocks.SNIFFBERRY_VINE_2.get().defaultBlockState());
         BlockEntity newBE = serverLevel.getBlockEntity(blockPos.above());
-        newBE.getPersistentData().putInt("height", height + 1);
-        newBE.getPersistentData().putInt("maxHeight", maxHeight);
-        newBE.getPersistentData().putBoolean("trimmed", trimmed);
+        CompoundTag newTag = newBE.getPersistentData();
+        newTag.putInt("height", height + 1);
+        newTag.putInt("maxHeight", maxHeight);
+        newTag.putBoolean("trimmed", trimmed);
+        newBE.setChanged();
     }
 }

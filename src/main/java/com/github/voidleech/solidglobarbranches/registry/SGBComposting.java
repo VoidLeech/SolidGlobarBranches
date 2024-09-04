@@ -1,32 +1,35 @@
 package com.github.voidleech.solidglobarbranches.registry;
 
+import com.github.voidleech.oblivion.registry.OblivionComposting;
 import net.mcreator.snifferent.init.SnifferentModItems;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraftforge.registries.RegistryObject;
 
 public class SGBComposting {
-    public static void addCompostables() {
-        add(0.85f, SnifferentModItems.BLOOM_PLANT.get());
-        add(0.85f, SnifferentModItems.SPINEFLOWER.get());
-        add(0.85f, SnifferentModItems.SPINDLEFERN.get());
-        add(0.85f, SnifferentModItems.TALL_SPINDLEFERN.get());
-        add(0.85f, SnifferentModItems.LUMIBULB.get());
-        add(0.85f, SnifferentModItems.CLUB_MOSS.get());
-        add(0.5f, SnifferentModItems.CLUB_MOSS_CARPET.get());
-        add(0.5f, SnifferentModItems.SNIFFBERRY.get());
-        add(0.5f, SnifferentModItems.TUBER_FRUIT.get());
-        add(0.3f, SnifferentModItems.BLOOM_PLANT_NUT.get());
-        add(0.3f, SnifferentModItems.LUMIBULB_SEEDS.get());
-        add(0.3f, SnifferentModItems.SPINEFLOWER_SEEDS.get());
-        add(0.3f, SnifferentModItems.SPINDLEFERN_SEEDS.get());
-        add(0.3f, SnifferentModItems.SNIFFBERRY_SEEDLING.get());
-        add(0.3f, SnifferentModItems.BLOOM_PLANT_NUT.get());
-        add(0.3f, SnifferentModItems.CLUB_MOSS_PATCH.get());
-        add(0.3f, SnifferentModItems.GLOBAR_SAPLING.get());
-        add(0.1f, SnifferentModItems.GLOBAR_BRANCH_MIDDLE.get());
+    public static void register() {
+        add(SnifferentModItems.BLOOM_PLANT, 0.85f);
+        add(SnifferentModItems.SPINEFLOWER, 0.85f);
+        add(SnifferentModItems.SPINDLEFERN, 0.85f);
+        add(SnifferentModItems.TALL_SPINDLEFERN, 0.85f);
+        add(SnifferentModItems.LUMIBULB, 0.85f);
+        add(SnifferentModItems.CLUB_MOSS, 0.85f);
+        add(SnifferentModItems.CLUB_MOSS_CARPET, 0.5f);
+        add(SnifferentModItems.SNIFFBERRY, 0.5f);
+        add(SnifferentModItems.TUBER_FRUIT, 0.5f);
+        add(SnifferentModItems.BLOOM_PLANT_NUT, 0.3f);
+        add(SnifferentModItems.LUMIBULB_SEEDS, 0.3f);
+        add(SnifferentModItems.SPINEFLOWER_SEEDS, 0.3f);
+        add(SnifferentModItems.SPINDLEFERN_SEEDS, 0.3f);
+        add(SnifferentModItems.SNIFFBERRY_SEEDLING, 0.3f);
+        add(SnifferentModItems.BLOOM_PLANT_NUT, 0.3f);
+        add(SnifferentModItems.CLUB_MOSS_PATCH, 0.3f);
+        add(SnifferentModItems.GLOBAR_SAPLING, 0.3f);
+        add(SnifferentModItems.GLOBAR_BRANCH_MIDDLE, 0.1f);
     }
-
-    private static void add(float chance, ItemLike item){
-        ComposterBlock.add(chance, item);
+    
+    private static void add(RegistryObject<Item> item, float chance){
+        OblivionComposting.addCompostable(item::get, chance);
     }
 }

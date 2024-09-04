@@ -3,6 +3,7 @@ package com.github.voidleech.solidglobarbranches;
 import com.github.voidleech.solidglobarbranches.event.PackEvents;
 import com.github.voidleech.solidglobarbranches.registry.SGBComposting;
 import com.github.voidleech.solidglobarbranches.registry.SGBFuel;
+import com.github.voidleech.solidglobarbranches.registry.SGBPacks;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -25,15 +26,16 @@ public class SolidGlobarBranches
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
-        modEventBus.addListener(PackEvents::addResourcePacks);
+        new SGBPacks().register(modEventBus);
+        SGBComposting.register();
+        SGBFuel.register();
 
         MinecraftForge.EVENT_BUS.register(this);
-        MinecraftForge.EVENT_BUS.addListener(SGBFuel::addFuels);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-        event.enqueueWork(SGBComposting::addCompostables);
+
     }
 
     @SubscribeEvent

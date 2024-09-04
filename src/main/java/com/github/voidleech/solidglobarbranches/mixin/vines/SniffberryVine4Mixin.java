@@ -1,5 +1,6 @@
 package com.github.voidleech.solidglobarbranches.mixin.vines;
 
+import com.github.voidleech.oblivion.hackyMixinUtils.propertyRebuilders.BlockPropertiesRebuilder;
 import com.github.voidleech.solidglobarbranches.registry.SGBTags;
 import com.github.voidleech.solidglobarbranches.reimagined.VineGrowing;
 import net.mcreator.snifferent.block.SightberryVine4Block;
@@ -38,15 +39,9 @@ public class SniffberryVine4Mixin extends Block implements BonemealableBlock {
 
     @Inject(method = "<init>", at = @At("TAIL"))
     void solidglobarbranches$enableRandomTicks(CallbackInfo ci){
-        this.isRandomlyTicking = true;
-
-        // Adjust this.properties in case another mod needs this.properties to be accurate
-        this.properties.isRandomlyTicking = true;
-        // Remake state definition s.t. property changes are reflected in-game
-        StateDefinition.Builder<Block, BlockState> builder = new StateDefinition.Builder<>(this);
-        this.createBlockStateDefinition(builder);
-        this.stateDefinition = builder.create(Block::defaultBlockState, BlockState::new);
-        this.registerDefaultState(this.stateDefinition.any());
+        BlockPropertiesRebuilder.of(this)
+                .randomTicks(true)
+                .finalizeRebuild();
     }
 
     @Override
@@ -85,11 +80,12 @@ public class SniffberryVine4Mixin extends Block implements BonemealableBlock {
             }
             pPlayer.getItemInHand(pHand).hurtAndBreak(1, pPlayer, (p) -> p.broadcastBreakEvent(pHand));
             be.getPersistentData().putBoolean("trimmed", true);
+            be.setChanged();
             return InteractionResult.sidedSuccess(pLevel.isClientSide);
         }
         popResource(pLevel, pPos, new ItemStack(SnifferentModItems.SNIFFBERRY.get()));
         pLevel.playSound(null, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0f, 0.8f + pLevel.getRandom().nextFloat() * 0.4f);
-        pLevel.setBlock(pPos, SnifferentModBlocks.SNIFFBERRY_VINE_3.get().defaultBlockState(), 3);
+        pLevel.setBlockAndUpdate(pPos, SnifferentModBlocks.SNIFFBERRY_VINE_3.get().defaultBlockState());
         return InteractionResult.sidedSuccess(pLevel.isClientSide);
     }
 

@@ -1,5 +1,6 @@
 package com.github.voidleech.solidglobarbranches.mixin.tree;
 
+import com.github.voidleech.oblivion.hackyMixinUtils.propertyRebuilders.BlockPropertiesRebuilder;
 import com.github.voidleech.solidglobarbranches.registry.SGBTags;
 import net.mcreator.snifferent.block.GlobarBranchMiddleBlock;
 import net.mcreator.snifferent.init.SnifferentModBlocks;
@@ -40,20 +41,12 @@ public class GlobarBranchMixin extends Block {
         super(pProperties);
     }
 
-    @Inject(method = "<init>", at = @At("TAIL"), remap = false)
+    @Inject(method = "<init>", at = @At("TAIL"))
     private void solidglobarbranches$branchCollision(CallbackInfo ci){
-        // Sufficient for collision
-        this.hasCollision = true;
-
-        // Adjust this.properties in case another mod needs this.properties to be accurate
-        this.properties.hasCollision = true;
-        // Change push reaction so branches get destroyed like leaves # why is this not part of Block
-        this.properties.pushReaction = PushReaction.DESTROY;
-        // Remake state definition s.t. property changes are reflected in-game
-        StateDefinition.Builder<Block, BlockState> builder = new StateDefinition.Builder<>(this);
-        this.createBlockStateDefinition(builder);
-        this.stateDefinition = builder.create(Block::defaultBlockState, BlockState::new);
-        this.registerDefaultState(this.stateDefinition.any());
+        BlockPropertiesRebuilder.of(this)
+                .collision(true)
+                .pushReaction(PushReaction.DESTROY)
+                .finalizeRebuild();
     }
 
     @Override

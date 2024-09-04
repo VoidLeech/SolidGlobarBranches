@@ -59,6 +59,7 @@ public class SniffberryVine3Mixin extends Block implements BonemealableBlock {
             }
             pPlayer.getItemInHand(pHand).hurtAndBreak(1, pPlayer, (p) -> p.broadcastBreakEvent(pHand));
             be.getPersistentData().putBoolean("trimmed", true);
+            be.setChanged();
             return InteractionResult.sidedSuccess(pLevel.isClientSide);
         }
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
