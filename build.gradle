@@ -87,7 +87,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 processResources {
     from('LICENSE')
-    from('REQUIRED-CONTENT')
+    from('RESTRICTED-CONTENT')
     from('README.MD')
     from('other-licenses/')
 }

@@ -1,0 +1,5 @@
+{
+  "blocks": ["snifferent:bloom_plant_4"],
+  "directions": ["up", "down"],
+  "connecting_blocks": ["snifferent:bloom_plant_4"]
+}

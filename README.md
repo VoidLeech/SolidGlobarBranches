@@ -13,14 +13,16 @@ Requires Oblivion.
 - Globar Branches now have a unique 3D model, to reflect the fact that they're now fully collideable. You can walk on them!
 - Globar Branches don't float anymore; they require a solid blockface to hang on, or another Globar Branch.
 - Falling on Globar Branches causes them to snap and break, be careful! Certain mobs are immune to this, and Feather/Slow Falling mitigates/prevents this.
-- Sniffberry Vines are now climbable
-- Create Recipe Compat
-- JEED Compat
+- Sniffberry Vines are now climbable.
 - Globar Branches (in block form) now count as logs for better compat with tree-cutting mods.
 - Porus Globar Logs are now obtainable with Silk Touch, as they are already movable with pistons so there's really no harm making them obtainable.
 - Sniffberry vines can now be bone-mealed, which allows them to grow beyond the random max height (you can also break and replant to get a new random max height).
 - Sniffberry vines can now be trimmed (with shears) to prevent them from growing.
 - Sniffberries can now be harvested via right click.
+- Create and Create: Vintage Improvements recipe compat.
+- JEED compat.
+- KleeSlabs compat.
+- Seamless compat.
 
 ### Fixes
 - snifferent's potion recipes are now viewable in recipe viewers like JEI.

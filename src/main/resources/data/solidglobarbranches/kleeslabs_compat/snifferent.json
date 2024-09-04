@@ -1,0 +1,7 @@
+{
+  "modid": "snifferent",
+  "converter": "SmartSlabConverter",
+  "slabs": [
+    "globar_slab"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "blocks": ["snifferent:tall_spindlefern"],
+  "directions": ["up", "down"],
+  "connecting_blocks": ["snifferent:tall_spindlefern"]
+}
