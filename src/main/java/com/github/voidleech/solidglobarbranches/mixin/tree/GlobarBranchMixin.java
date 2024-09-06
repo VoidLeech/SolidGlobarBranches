@@ -77,7 +77,7 @@ public class GlobarBranchMixin extends Block {
             while(true){
                 targetPos = targetPos.offset(vec);
                 if (world.isAreaLoaded(targetPos, 1)){
-                    if (world.getBlockState(targetPos).isFaceSturdy(world, targetPos, NEG)){
+                    if (Block.isFaceFull(world.getBlockState(targetPos).getShape(world, targetPos), NEG)){
                         return true;
                     }
                     BlockState bs = world.getBlockState(targetPos);
@@ -93,7 +93,7 @@ public class GlobarBranchMixin extends Block {
             while(true){
                 targetPos = targetPos.offset(vec);
                 if (world.isAreaLoaded(targetPos, 1)){
-                    if (world.getBlockState(targetPos).isFaceSturdy(world, targetPos, POS)){
+                    if (Block.isFaceFull(world.getBlockState(targetPos).getShape(world, targetPos), POS)){
                         return true;
                     }
                     BlockState bs = world.getBlockState(targetPos);
