@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(AmberGlowingBlock.class)
-public class AmberBlockGlowingMixin extends Block {
+public abstract class AmberBlockGlowingMixin extends Block {
     public AmberBlockGlowingMixin(Properties pProperties) {
         super(pProperties);
     }

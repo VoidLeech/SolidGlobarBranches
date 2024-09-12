@@ -1,17 +1,16 @@
 package com.github.voidleech.solidglobarbranches.mixin.farmland.spindlefern;
 
-import com.github.voidleech.solidglobarbranches.reimagined.ModdedFarmland;
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.mcreator.snifferent.procedures.PlantSpindlefernSeedsProcedure;
-import net.minecraft.world.level.block.Block;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlantSpindlefernSeedsProcedure.class)
-public class SpindlefernPlacementMixin {
-    @ModifyExpressionValue(method = "execute(Lnet/minecraftforge/eventbus/api/Event;Lnet/minecraft/world/level/LevelAccessor;DDDLnet/minecraft/world/entity/Entity;)V",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;getBlock()Lnet/minecraft/world/level/block/Block;"))
-    private static Block solidglobarbranches$moddedFarmlandIsAlsoFarmland(Block original){
-        return ModdedFarmland.vanillafyFarmland(original);
+public abstract class SpindlefernPlacementMixin {
+    @Inject(method = "onRightClickBlock", at = @At("HEAD"), cancellable = true, remap = false)
+    private static void solidglobarbranches$cancelEvent(PlayerInteractEvent.RightClickBlock event, CallbackInfo ci){
+        ci.cancel();
     }
 }

@@ -33,7 +33,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.function.Consumer;
 
 @Mixin(GlobarBranchMiddleBlock.class)
-public class GlobarBranchMixin extends Block {
+public abstract class GlobarBranchMixin extends Block {
     @Shadow @Final public static DirectionProperty FACING;
 
     public GlobarBranchMixin(Properties pProperties) {

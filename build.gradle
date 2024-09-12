@@ -11,7 +11,7 @@ version = mod_version
 group = mod_group_id
 
 base {
-    archivesName = mod_id
+    archivesName = mod_id + '-' + minecraft_version
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -96,10 +96,27 @@ repositories {
     flatDir {
         dir '../Oblivion/build/libs'
     }
-    maven {
-        url "https://cursemaven.com"
-        content {
+    exclusiveContent {
+        forRepository {
+            maven {
+                url "https://cursemaven.com"
+            }
+        }
+        forRepositories(fg.repository)
+        filter {
             includeGroup "curse.maven"
+        }
+    }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        forRepositories(fg.repository)
+        filter {
+            includeGroup "maven.modrinth"
         }
     }
     maven {
@@ -118,8 +135,10 @@ dependencies {
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
 
+    implementation fg.deobf("curse.maven:oblivion-1096331:5692443") // 1.1.0
+    // implementation fg.deobf("com.github.voidleech.oblivion:oblivion_api:${oblivion_version}") // Local for concurrent dev
+
     implementation fg.deobf("curse.maven:snifferent-915382:4766051")
-    implementation fg.deobf("com.github.voidleech.oblivion:oblivion_api:${oblivion_version}")
 
     // For testing modded farmland
     // runtimeOnly fg.deobf("curse.maven:aether-255308:5302178")
@@ -131,6 +150,12 @@ dependencies {
 mixin {
     add sourceSets.main, "mixins.${mod_id}.refmap.json"
     config "mixins.${mod_id}.json"
+}
+
+// Workaround for SpongePowered/MixinGradle#38
+afterEvaluate {
+    tasks.configureReobfTaskForReobfJar.mustRunAfter(tasks.compileJava)
+    tasks.configureReobfTaskForReobfJarJar.mustRunAfter(tasks.compileJava)
 }
 
 tasks.named('processResources', ProcessResources).configure {

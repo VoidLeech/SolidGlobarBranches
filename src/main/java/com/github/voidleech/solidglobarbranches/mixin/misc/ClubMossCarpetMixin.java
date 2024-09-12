@@ -12,7 +12,7 @@ import net.minecraftforge.common.IPlantable;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(ClubMossCarpetBlock.class)
-public class ClubMossCarpetMixin extends Block {
+public abstract class ClubMossCarpetMixin extends Block {
     public ClubMossCarpetMixin(Properties pProperties) {
         super(pProperties);
     }

@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(AmberBlockBlock.class)
-public class AmberBlockMixin extends Block {
+public abstract class AmberBlockMixin extends Block {
     public AmberBlockMixin(Properties pProperties) {
         super(pProperties);
     }

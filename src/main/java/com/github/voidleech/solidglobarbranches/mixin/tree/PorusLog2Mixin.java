@@ -20,7 +20,7 @@ import net.minecraft.world.phys.HitResult;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(PorusGlobarLog2Block.class)
-public class PorusLog2Mixin extends Block {
+public abstract class PorusLog2Mixin extends Block {
     public PorusLog2Mixin(Properties pProperties) {
         super(pProperties);
     }

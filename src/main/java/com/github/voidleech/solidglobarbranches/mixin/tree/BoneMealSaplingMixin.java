@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(BonemealGlobarProcedure.class)
-public class BoneMealSaplingMixin {
+public abstract class BoneMealSaplingMixin {
     @ModifyArg(method = "execute(Lnet/minecraft/world/level/LevelAccessor;DDD)V",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;setValue(Lnet/minecraft/world/level/block/state/properties/Property;Ljava/lang/Comparable;)Ljava/lang/Object;", remap = true),
             index = 1, remap = false)

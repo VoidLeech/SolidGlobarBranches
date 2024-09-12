@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(GlobarSapBottleItem.class)
-public class GlobarSapBottleMixin extends Item {
+public abstract class GlobarSapBottleMixin extends Item {
     public GlobarSapBottleMixin(Properties pProperties) {
         super(pProperties);
     }

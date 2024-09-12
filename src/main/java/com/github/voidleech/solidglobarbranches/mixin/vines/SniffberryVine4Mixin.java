@@ -28,9 +28,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@SuppressWarnings("deprecation")
 @Mixin(SightberryVine4Block.class)
-public class SniffberryVine4Mixin extends Block implements BonemealableBlock {
+public abstract class SniffberryVine4Mixin extends Block implements BonemealableBlock {
 
     public SniffberryVine4Mixin(Properties pProperties) {
         super(pProperties);

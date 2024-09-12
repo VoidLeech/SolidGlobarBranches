@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(SightberryVine0Block.class)
-public class SniffberryVine0Mixin extends Block implements BonemealableBlock {
+public abstract class SniffberryVine0Mixin extends Block implements BonemealableBlock {
     public SniffberryVine0Mixin(Properties pProperties) {
         super(pProperties);
     }

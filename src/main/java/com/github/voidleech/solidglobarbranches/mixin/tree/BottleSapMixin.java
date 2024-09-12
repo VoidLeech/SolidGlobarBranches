@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(BottleFullPorusLogProcedure.class)
-public class BottleSapMixin {
+public abstract class BottleSapMixin {
     @Inject(method = "onRightClickBlock", at = @At("HEAD"), cancellable = true, remap = false)
     private static void solidglobarbranches$cancelEvent(PlayerInteractEvent.RightClickBlock event, CallbackInfo ci){
         ci.cancel();

@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(SightberryVine2Block.class)
-public class SniffberryVine2Mixin extends Block implements BonemealableBlock {
+public abstract class SniffberryVine2Mixin extends Block implements BonemealableBlock {
     public SniffberryVine2Mixin(Properties pProperties) {
         super(pProperties);
     }

@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(AmberGlassBlock.class)
-public class AmberGlassMixin extends Block {
+public abstract class AmberGlassMixin extends Block {
     public AmberGlassMixin(Properties pProperties) {
         super(pProperties);
     }
