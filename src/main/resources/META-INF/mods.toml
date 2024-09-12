@@ -12,7 +12,7 @@ updateJSONURL="https://raw.githubusercontent.com/VoidLeech/vl-mod-versioning/mai
 # A URL for the "homepage" for this mod, displayed in the mod UI
 displayURL="https://github.com/VoidLeech/SolidGlobarBranches" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
-logoFile="sgb-icon.png" #optional
+logoFile="icon.png" #optional
 # A text field displayed in the mod UI
 #credits="" #optional
 # A text field displayed in the mod UI
