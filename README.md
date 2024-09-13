@@ -35,6 +35,7 @@ Requires Oblivion.
 - Globar Branches on grown trees now always have the correct 'facing' value.
 - Amber and Amber Glass are now considered equal to their Glowing variants w.r.t. rendering.
 - Porus Globar Logs with Globar Sap in them now have the Porus Globar Log as pick-block item.
+- Several right click actions now work in the off-hand.
 
 ### F.A.Q.
 **Q: Can this be used in my modpack?**  
