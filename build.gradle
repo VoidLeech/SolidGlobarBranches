@@ -123,6 +123,10 @@ repositories {
         name = "Jared's maven"
         url = "https://maven.blamejared.com/"
     }
+    maven {
+        name = "shedaniel's maven"
+        url = "https://maven.shedaniel.me/"
+    }
 }
 
 dependencies {
@@ -143,8 +147,16 @@ dependencies {
     // For testing modded farmland
     // runtimeOnly fg.deobf("curse.maven:aether-255308:5302178")
 
-    // For testing modernfix dynamic_resources incompat
+    // For testing Modernfix dynamic_resources incompat
     // runtimeOnly fg.deobf("curse.maven:modernfix-790626:5541516")
+
+    // For testing KleeSlabs compat
+    // runtimeOnly fg.deobf("curse.maven:kleeslabs-241895:4583104")
+    // runtimeOnly fg.deobf("curse.maven:balm-531761:5644976")
+
+    // For testing Seamless compat
+    // runtimeOnly fg.deobf("dev.architectury:architectury-forge:9.2.14")
+    // runtimeOnly fg.deobf("curse.maven:seamless-855593:4980590")
 }
 
 mixin {
