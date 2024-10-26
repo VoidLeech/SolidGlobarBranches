@@ -1,8 +1,8 @@
 package com.github.voidleech.solidglobarbranches.mixin.vines;
 
-import com.github.voidleech.oblivion.hackyMixinUtils.propertyRebuilders.BlockPropertiesRebuilder;
 import com.github.voidleech.solidglobarbranches.registry.SGBTags;
 import com.github.voidleech.solidglobarbranches.reimagined.VineGrowing;
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.mcreator.snifferent.block.SightberryVine4Block;
 import net.mcreator.snifferent.init.SnifferentModBlocks;
 import net.mcreator.snifferent.init.SnifferentModItems;
@@ -35,11 +35,9 @@ public abstract class SniffberryVine4Mixin extends Block implements Bonemealable
         super(pProperties);
     }
 
-    @Inject(method = "<init>", at = @At("TAIL"))
-    void solidglobarbranches$enableRandomTicks(CallbackInfo ci){
-        BlockPropertiesRebuilder.of(this)
-                .randomTicks(true)
-                .finalizeRebuild();
+    @ModifyExpressionValue(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;of()Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;"))
+    private static Properties solidglobarbranches$enableRandomTicks(Properties original){
+        return original.randomTicks();
     }
 
     @Override

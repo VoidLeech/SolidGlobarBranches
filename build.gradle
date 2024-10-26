@@ -139,8 +139,8 @@ dependencies {
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
 
-    implementation fg.deobf("curse.maven:oblivion-1096331:5692443") // 1.1.0
-    // implementation fg.deobf("com.github.voidleech.oblivion:oblivion_api:${oblivion_version}") // Local for concurrent dev
+    // implementation fg.deobf("curse.maven:oblivion-1096331:5692443") // 1.1.0 todo update
+    implementation fg.deobf("com.github.voidleech.oblivion:oblivion_api:${oblivion_version}") // Local for concurrent dev
 
     implementation fg.deobf("curse.maven:snifferent-915382:4766051")
 

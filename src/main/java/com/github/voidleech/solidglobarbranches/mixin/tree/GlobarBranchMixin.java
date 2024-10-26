@@ -1,7 +1,8 @@
 package com.github.voidleech.solidglobarbranches.mixin.tree;
 
-import com.github.voidleech.oblivion.hackyMixinUtils.propertyRebuilders.BlockPropertiesRebuilder;
+import com.github.voidleech.oblivion.propertyUndoers.IBlockPropertyUndoerExtensions;
 import com.github.voidleech.solidglobarbranches.registry.SGBTags;
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.mcreator.snifferent.block.GlobarBranchMiddleBlock;
 import net.mcreator.snifferent.init.SnifferentModBlocks;
 import net.minecraft.core.BlockPos;
@@ -27,8 +28,6 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.function.Consumer;
 
@@ -40,12 +39,9 @@ public abstract class GlobarBranchMixin extends Block {
         super(pProperties);
     }
 
-    @Inject(method = "<init>", at = @At("TAIL"))
-    private void solidglobarbranches$branchCollision(CallbackInfo ci){
-        BlockPropertiesRebuilder.of(this)
-                .collision(true)
-                .pushReaction(PushReaction.DESTROY)
-                .finalizeRebuild();
+    @ModifyExpressionValue(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;noCollission()Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;"))
+    private static Properties solidglobarbranches$enableCollision(Properties original){
+        return ((IBlockPropertyUndoerExtensions)original).oblivion$collision().pushReaction(PushReaction.DESTROY);
     }
 
     @Override
