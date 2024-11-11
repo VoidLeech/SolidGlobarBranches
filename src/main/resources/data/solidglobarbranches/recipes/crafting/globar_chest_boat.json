@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "chest_boat",
+  "ingredients": [
+    {
+      "tag": "forge:chests/wooden"
+    },
+    {
+      "item": "snifferent:globar_boat"
+    }
+  ],
+  "result": {
+    "item": "snifferent:globar_chest_boat"
+  }
+}

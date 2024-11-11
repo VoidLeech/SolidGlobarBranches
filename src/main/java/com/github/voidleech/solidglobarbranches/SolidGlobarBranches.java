@@ -1,10 +1,21 @@
 package com.github.voidleech.solidglobarbranches;
 
+import com.github.voidleech.solidglobarbranches.entities.client.SGBBoatRenderer;
+import com.github.voidleech.solidglobarbranches.entities.client.SGBModelLayers;
+import com.github.voidleech.solidglobarbranches.registry.SGBBlocks;
 import com.github.voidleech.solidglobarbranches.registry.SGBComposting;
+import com.github.voidleech.solidglobarbranches.registry.SGBEntities;
 import com.github.voidleech.solidglobarbranches.registry.SGBFuel;
+import com.github.voidleech.solidglobarbranches.registry.SGBItems;
 import com.github.voidleech.solidglobarbranches.registry.SGBPacks;
+import com.github.voidleech.solidglobarbranches.registry.SGBWoodTypes;
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.model.BoatModel;
+import net.minecraft.client.model.ChestBoatModel;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -26,6 +37,10 @@ public class SolidGlobarBranches
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
         new SGBPacks().register(modEventBus);
+        SGBBlocks.register(modEventBus);
+        SGBItems.register(modEventBus);
+        // SGBEntities.register(modEventBus); NOPE (We inject into snifferent's constructor instead)
+
         SGBComposting.register();
         SGBFuel.register();
 
@@ -49,7 +64,18 @@ public class SolidGlobarBranches
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            event.enqueueWork(() -> {
+                Sheets.addWoodType(SGBWoodTypes.GLOBAR);
 
+                EntityRenderers.register(SGBEntities.BOAT.get(), context -> new SGBBoatRenderer(context, false));
+                EntityRenderers.register(SGBEntities.CHEST_BOAT.get(), context -> new SGBBoatRenderer(context, true));
+            });
+        }
+
+        @SubscribeEvent
+        public static void registerModelLayers(EntityRenderersEvent.RegisterLayerDefinitions event){
+            event.registerLayerDefinition(SGBModelLayers.GLOBAR_BOAT_LAYER, BoatModel::createBodyModel);
+            event.registerLayerDefinition(SGBModelLayers.GLOBAR_CHEST_BOAT_LAYER, ChestBoatModel::createBodyModel);
         }
     }
 }

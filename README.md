@@ -19,6 +19,7 @@ Requires Oblivion.
 - Sniffberry vines can now be bone-mealed, which allows them to grow beyond the random max height (you can also break and replant to get a new random max height).
 - Sniffberry vines can now be trimmed (with shears) to prevent them from growing.
 - Sniffberries can now be harvested via right click.
+- Signs & Boats for snifferent Woodtype.
 - Create and Create: Vintage Improvements recipe compat.
 - JEED compat.
 - KleeSlabs compat.
@@ -44,3 +45,6 @@ A: Yes, but do note our license does not allow directly including the mod files 
 ### Licensing
 This project is released under the [Avoiding Leeching License, version 1.0](LICENSE).  
 Special permission is granted to Lixir, the developer of snifferent, to use, copy, modify, share, and deal in the mod's code and assets, but not the branding, as he sees fit, exclusively for the purpose of improving snifferent, with no further restrictions.
+
+#### Third-Party Content
+This project contains code from Kaupenjoe's 1.20.X Forge Tutorial (Boats), which is licensed under the [MIT license](other-licenses/mit-kaupenjoe).
