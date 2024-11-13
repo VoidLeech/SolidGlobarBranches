@@ -27,7 +27,7 @@ public abstract class SnItemsMixin {
 
     @Unique
     private static final RegistryObject<HangingSignItem> SOLIDGLOBARBRANCHES$GLOBAR_HANGING_SIGN = REGISTRY.register("globar_hanging_sign", () ->
-            new HangingSignItem(SGBBlocks.GLOBAR_HANGING_SIGN.get().get(), SGBBlocks.GLOBAR_HANGING_WALL_SIGN.get().get(), new Item.Properties().stacksTo(16)));
+            new HangingSignItem(SGBBlocks.GLOBAR_HANGING_SIGN.get().get(), SGBBlocks.GLOBAR_WALL_HANGING_SIGN.get().get(), new Item.Properties().stacksTo(16)));
 
     @Unique
     private static final RegistryObject<SGBBoatItem> SOLIDGLOBARBRANCHE$GLOBAR_BOAT = REGISTRY.register("globar_boat",

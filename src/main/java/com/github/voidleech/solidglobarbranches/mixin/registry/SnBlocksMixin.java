@@ -10,6 +10,7 @@ import net.mcreator.snifferent.init.SnifferentModBlocks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import org.spongepowered.asm.mixin.Final;
@@ -25,24 +26,25 @@ public abstract class SnBlocksMixin {
     public static DeferredRegister<Block> REGISTRY;
     @Unique
     private static final RegistryObject<OblivionStandingSignBlock> SOLIDGLOBARBRANCHES$GLOBAR_STANDING_SIGN = REGISTRY.register("globar_sign", () ->
-            new OblivionStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), SGBWoodTypes.GLOBAR));
+            new OblivionStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(MapColor.COLOR_LIGHT_BLUE), SGBWoodTypes.GLOBAR));
 
     @Unique
     private static final RegistryObject<OblivionWallSignBlock> SOLIDGLOBARBRANCHES$GLOBAR_WALL_SIGN = REGISTRY.register("globar_wall_sign", () ->
-            new OblivionWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), SGBWoodTypes.GLOBAR));
+            new OblivionWallSignBlock(BlockBehaviour.Properties.copy(SOLIDGLOBARBRANCHES$GLOBAR_STANDING_SIGN.get())
+                    .dropsLike(SOLIDGLOBARBRANCHES$GLOBAR_STANDING_SIGN.get()), SGBWoodTypes.GLOBAR));
 
     @Unique
     private static final RegistryObject<OblivionHangingSignBlock> SOLIDGLOBARBRANCHES$GLOBAR_HANGING_SIGN = REGISTRY.register("globar_hanging_sign", () ->
-            new OblivionHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), SGBWoodTypes.GLOBAR));
+            new OblivionHangingSignBlock(BlockBehaviour.Properties.copy(SOLIDGLOBARBRANCHES$GLOBAR_STANDING_SIGN.get()), SGBWoodTypes.GLOBAR));
 
     @Unique
-    private static final RegistryObject<OblivionWallHangingSignBlock> SOLIDGLOBARBRANCHES$GLOBAR_HANGING_WALL_SIGN = REGISTRY.register("globar_hanging_wall_sign", () ->
-            new OblivionWallHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), SGBWoodTypes.GLOBAR));
+    private static final RegistryObject<OblivionWallHangingSignBlock> SOLIDGLOBARBRANCHES$GLOBAR_WALL_HANGING_SIGN = REGISTRY.register("globar_wall_hanging_sign", () ->
+            new OblivionWallHangingSignBlock(BlockBehaviour.Properties.copy(SOLIDGLOBARBRANCHES$GLOBAR_STANDING_SIGN.get()), SGBWoodTypes.GLOBAR));
 
     static {
         SGBBlocks.GLOBAR_STANDING_SIGN.assign(SOLIDGLOBARBRANCHES$GLOBAR_STANDING_SIGN);
         SGBBlocks.GLOBAR_WALL_SIGN.assign(SOLIDGLOBARBRANCHES$GLOBAR_WALL_SIGN);
         SGBBlocks.GLOBAR_HANGING_SIGN.assign(SOLIDGLOBARBRANCHES$GLOBAR_HANGING_SIGN);
-        SGBBlocks.GLOBAR_HANGING_WALL_SIGN.assign(SOLIDGLOBARBRANCHES$GLOBAR_HANGING_WALL_SIGN);
+        SGBBlocks.GLOBAR_WALL_HANGING_SIGN.assign(SOLIDGLOBARBRANCHES$GLOBAR_WALL_HANGING_SIGN);
     }
 }

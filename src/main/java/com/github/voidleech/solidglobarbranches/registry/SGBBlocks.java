@@ -23,11 +23,11 @@ public class SGBBlocks {
 
     public static final AssignOnceSupplier<OblivionHangingSignBlock> GLOBAR_HANGING_SIGN = new AssignOnceSupplier<>();
 
-    public static final AssignOnceSupplier<OblivionWallHangingSignBlock> GLOBAR_HANGING_WALL_SIGN = new AssignOnceSupplier<>();
+    public static final AssignOnceSupplier<OblivionWallHangingSignBlock> GLOBAR_WALL_HANGING_SIGN = new AssignOnceSupplier<>();
 
     public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);
         OblivionBlockEntities.addSign(() -> GLOBAR_STANDING_SIGN.get().get(), () -> GLOBAR_WALL_SIGN.get().get(),
-                () -> GLOBAR_HANGING_SIGN.get().get(), () -> GLOBAR_HANGING_WALL_SIGN.get().get());
+                () -> GLOBAR_HANGING_SIGN.get().get(), () -> GLOBAR_WALL_HANGING_SIGN.get().get());
     }
 }
