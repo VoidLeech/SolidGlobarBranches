@@ -1,6 +1,7 @@
 package com.github.voidleech.solidglobarbranches.registry;
 
 import com.github.voidleech.oblivion.entities.OblivionBoatType;
+import com.github.voidleech.oblivion.items.OblivionBoatItem;
 import net.mcreator.snifferent.SnifferentMod;
 import net.mcreator.snifferent.init.SnifferentModBlocks;
 import net.minecraft.world.item.Item;
@@ -12,21 +13,21 @@ import java.util.function.Supplier;
 
 public class SGBWoodTypes {
     // How to detect MCreator mod without decomp: no boats or signs
-    public static final WoodType GLOBAR = WoodType.register(new WoodType("snifferent:globar", BlockSetType.OAK));
+    public static final WoodType GLOBAR = WoodType.register(new WoodType(SnifferentMod.MODID + ":globar", BlockSetType.OAK));
 
     public enum SGBBoatType implements OblivionBoatType {
 
         GLOBAR(SnifferentModBlocks.GLOBAR_PLANKS.get(), "globar", SGBItems.GLOBAR_BOAT.get(), SGBItems.GLOBAR_CHEST_BOAT.get());
         private final String name;
-        private final Supplier<? extends Item> boat;
-        private final Supplier<? extends Item> chestBoat;
+        private final Supplier<? extends OblivionBoatItem> boat;
+        private final Supplier<? extends OblivionBoatItem> chestBoat;
         private final Block planks;
-        SGBBoatType(Block pPlanks, String pName, Supplier<? extends Item> boat, Supplier<? extends Item> chestBoat) {
+        SGBBoatType(Block pPlanks, String pName, Supplier<? extends OblivionBoatItem> boat, Supplier<? extends OblivionBoatItem> chestBoat) {
             this.name = pName;
             this.boat = boat;
             this.chestBoat = chestBoat;
             this.planks = pPlanks;
-            TYPES.put(getSerializedName(), this);
+            initOBT();
         }
 
         @Override
