@@ -3,7 +3,5 @@
   "block.snifferent.globar_sign": "Globar Sign",
   "block.snifferent.globar_hanging_sign": "Globar Hanging Sign",
   "item.snifferent.globar_boat": "Globar Boat",
-  "item.snifferent.globar_chest_boat": "Globar Boat with Chest",
-  "entity.snifferent.boat": "Boat",
-  "entity.snifferent.chest_boat": "Boat with Chest"
+  "item.snifferent.globar_chest_boat": "Globar Boat with Chest"
 }

@@ -1,13 +1,12 @@
 package com.github.voidleech.solidglobarbranches.registry;
 
+import com.github.voidleech.oblivion.items.OblivionBoatItem;
 import com.github.voidleech.oblivion.util.AssignOnceSupplier;
 import com.github.voidleech.solidglobarbranches.SolidGlobarBranches;
-import com.github.voidleech.solidglobarbranches.items.SGBBoatItem;
 import net.mcreator.snifferent.init.SnifferentModTabs;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -19,9 +18,9 @@ public class SGBItems {
     public static final AssignOnceSupplier<SignItem> GLOBAR_SIGN = new AssignOnceSupplier<>();
     public static final AssignOnceSupplier<HangingSignItem> GLOBAR_HANGING_SIGN = new AssignOnceSupplier<>();
 
-    public static final AssignOnceSupplier<SGBBoatItem> GLOBAR_BOAT = new AssignOnceSupplier<>();
+    public static final AssignOnceSupplier<OblivionBoatItem> GLOBAR_BOAT = new AssignOnceSupplier<>();
 
-    public static final AssignOnceSupplier<SGBBoatItem> GLOBAR_CHEST_BOAT = new AssignOnceSupplier<>();
+    public static final AssignOnceSupplier<OblivionBoatItem> GLOBAR_CHEST_BOAT = new AssignOnceSupplier<>();
 
     public static void register(IEventBus modEventBus) {
         ITEMS.register(modEventBus);

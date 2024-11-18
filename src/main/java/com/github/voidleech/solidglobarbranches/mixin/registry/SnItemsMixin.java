@@ -1,9 +1,9 @@
 package com.github.voidleech.solidglobarbranches.mixin.registry;
 
-import com.github.voidleech.solidglobarbranches.entities.SGBBoatEntity;
-import com.github.voidleech.solidglobarbranches.items.SGBBoatItem;
+import com.github.voidleech.oblivion.items.OblivionBoatItem;
 import com.github.voidleech.solidglobarbranches.registry.SGBBlocks;
 import com.github.voidleech.solidglobarbranches.registry.SGBItems;
+import com.github.voidleech.solidglobarbranches.registry.SGBWoodTypes;
 import net.mcreator.snifferent.init.SnifferentModItems;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
@@ -30,12 +30,12 @@ public abstract class SnItemsMixin {
             new HangingSignItem(SGBBlocks.GLOBAR_HANGING_SIGN.get().get(), SGBBlocks.GLOBAR_WALL_HANGING_SIGN.get().get(), new Item.Properties().stacksTo(16)));
 
     @Unique
-    private static final RegistryObject<SGBBoatItem> SOLIDGLOBARBRANCHE$GLOBAR_BOAT = REGISTRY.register("globar_boat",
-            () -> new SGBBoatItem(false, SGBBoatEntity.Type.GLOBAR, new Item.Properties().stacksTo(1)));
+    private static final RegistryObject<OblivionBoatItem> SOLIDGLOBARBRANCHE$GLOBAR_BOAT = REGISTRY.register("globar_boat",
+            () -> new OblivionBoatItem(false, SGBWoodTypes.SGBBoatType.GLOBAR, new Item.Properties().stacksTo(1)));
 
     @Unique
-    private static final RegistryObject<SGBBoatItem> SOLIDGLOBARBRANCHE$GLOBAR_CHEST_BOAT = REGISTRY.register("globar_chest_boat",
-            () -> new SGBBoatItem(true, SGBBoatEntity.Type.GLOBAR, new Item.Properties().stacksTo(1)));
+    private static final RegistryObject<OblivionBoatItem> SOLIDGLOBARBRANCHE$GLOBAR_CHEST_BOAT = REGISTRY.register("globar_chest_boat",
+            () -> new OblivionBoatItem(true, SGBWoodTypes.SGBBoatType.GLOBAR, new Item.Properties().stacksTo(1)));
 
     static {
         SGBItems.GLOBAR_SIGN.assign(SOLIDGLOBARBRANCHES$GLOBAR_SIGN);

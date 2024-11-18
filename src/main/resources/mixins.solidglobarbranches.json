@@ -17,7 +17,7 @@
     "farmland.spineflower.Spineflower1Mixin", "farmland.spineflower.Spineflower2Mixin",
     "farmland.spineflower.SpineflowerPlacementMixin", "farmland.spineflower.SpineflowerSeedsMixin",
     "misc.ClubMossCarpetMixin", "misc.GlobarSapBottleMixin", "potion.ResistanceRecipeMixin",
-    "potion.SniffingRecipeMixin", "registry.SnBlocksMixin", "registry.SnItemsMixin", "registry.SnifferentModMixin",
+    "potion.SniffingRecipeMixin", "registry.SnBlocksMixin", "registry.SnItemsMixin",
     "tree.BoneMealSaplingMixin", "tree.BottleSapMixin", "tree.GlobarBranchMixin", "tree.PorusLog1Mixin",
     "tree.PorusLog2Mixin", "tree.RandomTickSaplingMixin", "vines.SniffberryVine0Mixin", "vines.SniffberryVine1Mixin",
     "vines.SniffberryVine2Mixin", "vines.SniffberryVine3Mixin", "vines.SniffberryVine4Mixin"
