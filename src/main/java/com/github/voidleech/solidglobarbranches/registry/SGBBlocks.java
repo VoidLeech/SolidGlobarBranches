@@ -27,7 +27,5 @@ public class SGBBlocks {
 
     public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);
-        OblivionBlockEntities.addSign(GLOBAR_STANDING_SIGN.get(), GLOBAR_WALL_SIGN.get(),
-                GLOBAR_HANGING_SIGN.get(), GLOBAR_WALL_HANGING_SIGN.get());
     }
 }
