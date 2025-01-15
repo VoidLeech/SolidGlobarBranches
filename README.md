@@ -43,5 +43,5 @@ Requires Oblivion.
 A: Yes, but do note our license does not allow directly including the mod files in your pack.
 
 ### Licensing
-This project is released under the [Avoiding Leeching License, version 1.0](LICENSE).  
-Special permission is granted to Lixir, the developer of snifferent, to use, copy, modify, share, and deal in the mod's code and assets, but not the branding, as he sees fit, exclusively for the purpose of improving snifferent, with no further restrictions.
+This project is released under the [Avoiding Leeching License, version 1.1](LICENSE).  
+Special permission is granted to Lixir, the developer of snifferent, to use, copy, modify, and share the mod's code and assets, but not the branding, as he sees fit, exclusively for the purpose of improving snifferent, with no further restrictions.
