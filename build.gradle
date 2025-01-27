@@ -86,10 +86,12 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 processResources {
-    from('LICENSE')
-    from('RESTRICTED-CONTENT')
-    from('README.MD')
-    from('other-licenses/')
+    from(file("LICENSE"))
+    from(file("RESTRICTED-CONTENT"))
+    from(file("README.MD"))
+    from(fileTree("other-licenses/")) {
+        rename { "other-licenses/${it}"}
+    }
 }
 
 repositories {
