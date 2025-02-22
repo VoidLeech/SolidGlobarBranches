@@ -1,18 +1,11 @@
 package com.github.voidleech.solidglobarbranches.registry;
 
-import com.github.voidleech.oblivion.registry.AbstractOblivionPacks;
-import com.github.voidleech.solidglobarbranches.SolidGlobarBranches;
+import com.github.voidleech.oblivion.util.Registration;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.Tuple;
+import net.minecraft.server.packs.PackType;
 
-import java.util.Map;
-
-public class SGBPacks extends AbstractOblivionPacks {
-    public SGBPacks() {
-        super(Map.of(
-                "just_bumpy_branches", new Tuple<>(Component.literal("Removes twigs from the sides of globar branches"), false),
-                "straight_branches", new Tuple<>(Component.literal("Makes globar branches flat and straight"), false),
-                "solid_globar_branches", new Tuple<>(Component.literal("snifferent model overrides"), true)),
-                SolidGlobarBranches.MOD_ID, "SGB");
-    }
+public class SGBPacks {
+    public static final Registration.PackData SGB = new Registration.PackData("solid_globar_branches", Component.literal("SGB: snifferent Asset Overrides"), true, true, PackType.CLIENT_RESOURCES);
+    public static final Registration.PackData STRAIGHT = new Registration.PackData("straight_branches", Component.literal("SGB: Straight Branches"), false, false, PackType.CLIENT_RESOURCES);
+    public static final Registration.PackData NO_TWIGS = new Registration.PackData("just_bumpy_branches", Component.literal("SGB: Just Bumpy Branches"), false, false, PackType.CLIENT_RESOURCES);
 }

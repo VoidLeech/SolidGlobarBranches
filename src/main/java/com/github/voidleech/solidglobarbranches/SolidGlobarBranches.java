@@ -1,12 +1,14 @@
 package com.github.voidleech.solidglobarbranches;
 
 import com.github.voidleech.oblivion.entities.client.OblivionBoatRenderer;
+import com.github.voidleech.oblivion.util.Registration;
 import com.github.voidleech.solidglobarbranches.entities.client.SGBModelLayers;
 import com.github.voidleech.solidglobarbranches.registry.SGBBlocks;
 import com.github.voidleech.solidglobarbranches.registry.SGBComposting;
 import com.github.voidleech.solidglobarbranches.registry.SGBFuel;
 import com.github.voidleech.solidglobarbranches.registry.SGBItems;
 import com.github.voidleech.solidglobarbranches.registry.SGBPacks;
+import com.github.voidleech.solidglobarbranches.registry.SGBPotionRecipes;
 import com.github.voidleech.solidglobarbranches.registry.SGBWoodTypes;
 import com.mojang.logging.LogUtils;
 import net.mcreator.snifferent.SnifferentMod;
@@ -25,6 +27,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
+import java.util.List;
+
 @Mod(SolidGlobarBranches.MOD_ID)
 public class SolidGlobarBranches
 {
@@ -35,12 +39,13 @@ public class SolidGlobarBranches
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
-        new SGBPacks().register(modEventBus);
+        Registration.registerPacks(List.of(SGBPacks.SGB, SGBPacks.STRAIGHT, SGBPacks.NO_TWIGS), MOD_ID);
         SGBBlocks.register(modEventBus);
         SGBItems.register(modEventBus);
 
         SGBComposting.register();
         SGBFuel.register();
+        SGBPotionRecipes.register();
 
         MinecraftForge.EVENT_BUS.register(this);
     }

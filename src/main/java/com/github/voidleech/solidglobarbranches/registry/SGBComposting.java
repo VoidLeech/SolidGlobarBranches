@@ -1,6 +1,6 @@
 package com.github.voidleech.solidglobarbranches.registry;
 
-import com.github.voidleech.oblivion.registry.OblivionComposting;
+import com.github.voidleech.oblivion.util.RecipeLikeProperties;
 import net.mcreator.snifferent.init.SnifferentModItems;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.RegistryObject;
@@ -28,6 +28,6 @@ public class SGBComposting {
     }
     
     private static void add(RegistryObject<Item> item, float chance){
-        OblivionComposting.addCompostable(item::get, chance);
+        RecipeLikeProperties.addCompostable(item::get, chance);
     }
 }

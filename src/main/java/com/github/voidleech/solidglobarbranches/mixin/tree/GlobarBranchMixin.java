@@ -1,6 +1,6 @@
 package com.github.voidleech.solidglobarbranches.mixin.tree;
 
-import com.github.voidleech.oblivion.propertyUndoers.IBlockPropertyUndoerExtensions;
+import com.github.voidleech.oblivion.extensions.property.IBlockPropertyUndoer;
 import com.github.voidleech.solidglobarbranches.registry.SGBTags;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.mcreator.snifferent.block.GlobarBranchMiddleBlock;
@@ -41,7 +41,7 @@ public abstract class GlobarBranchMixin extends Block {
 
     @ModifyExpressionValue(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;noCollission()Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;"))
     private static Properties solidglobarbranches$enableCollision(Properties original){
-        return ((IBlockPropertyUndoerExtensions)original).oblivion$collision().pushReaction(PushReaction.DESTROY);
+        return ((IBlockPropertyUndoer)original).oblivion$collision().pushReaction(PushReaction.DESTROY);
     }
 
     @Override

@@ -4,7 +4,6 @@ import com.github.voidleech.oblivion.blocks.OblivionHangingSignBlock;
 import com.github.voidleech.oblivion.blocks.OblivionStandingSignBlock;
 import com.github.voidleech.oblivion.blocks.OblivionWallHangingSignBlock;
 import com.github.voidleech.oblivion.blocks.OblivionWallSignBlock;
-import com.github.voidleech.oblivion.registry.OblivionBlockEntities;
 import com.github.voidleech.oblivion.util.AssignOnceSupplier;
 import com.github.voidleech.solidglobarbranches.SolidGlobarBranches;
 import net.minecraft.world.level.block.Block;
