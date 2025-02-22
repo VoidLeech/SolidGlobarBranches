@@ -94,6 +94,13 @@ processResources {
     }
 }
 
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
 repositories {
     mavenLocal()
     exclusiveContent {
