@@ -39,7 +39,7 @@ public class SolidGlobarBranches
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
-        Registration.registerPacks(List.of(SGBPacks.SGB, SGBPacks.STRAIGHT, SGBPacks.NO_TWIGS), MOD_ID);
+        Registration.registerPacks(List.of(SGBPacks.SGB, SGBPacks.STRAIGHT, SGBPacks.NO_TWIGS, SGBPacks.NO_EGGS), MOD_ID);
         SGBBlocks.register(modEventBus);
         SGBItems.register(modEventBus);
 
