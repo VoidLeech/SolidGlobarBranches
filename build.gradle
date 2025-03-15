@@ -147,7 +147,7 @@ dependencies {
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
 
     // Oblivion
-    if (oblivion_snapshot) {
+    if (oblivion_snapshot.toBoolean()) {
         implementation fg.deobf("com.github.voidleech.oblivion:oblivion_api-forge-${minecraft_version}:${oblivion_version}") // Local for concurrent dev
     }
     else {
