@@ -134,6 +134,14 @@ repositories {
         name = "shedaniel's maven"
         url = "https://maven.shedaniel.me/"
     }
+    ivy {
+        name "Oblivion Releases"
+        url 'https://github.com/'
+        patternLayout {
+            artifact "/[organisation]/[module]/releases/download/${minecraft_version}-${oblivion_version}/[revision].jar"
+        }
+        metadataSources { artifact() }
+    }
 }
 
 dependencies {
@@ -151,7 +159,7 @@ dependencies {
         implementation fg.deobf("com.github.voidleech.oblivion:oblivion_api-forge-${minecraft_version}:${oblivion_version}") // Local for concurrent dev
     }
     else {
-        implementation fg.deobf("maven.modrinth:oblivion-api:${oblivion_version}-${minecraft_version}")
+        implementation fg.deobf("VoidLeech:Oblivion:oblivion_api-forge-${minecraft_version}-${oblivion_version}")
     }
 
     implementation fg.deobf("curse.maven:snifferent-915382:4766051")
