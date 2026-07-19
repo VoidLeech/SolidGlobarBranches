@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "species:alphacene_moss_block",
+      "required": false
+    },
+    {
+      "id": "species:alphacene_grass_block",
+      "required": false
+    }
+  ]
+}
