@@ -42,7 +42,7 @@ public abstract class SniffberryVine4Mixin extends Block implements Bonemealable
 
     @Override
     public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState, boolean b) {
-        return true;
+        return levelReader.isEmptyBlock(blockPos.above());
     }
 
     @Override
