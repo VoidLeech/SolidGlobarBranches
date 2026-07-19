@@ -22,7 +22,8 @@ public class FlowerPlanting {
             SnifferentModItems.BLOOM_PLANT_NUT.get(), SnifferentModBlocks.BLOOM_PLANT_0.get().defaultBlockState(),
             SnifferentModItems.LUMIBULB_SEEDS.get(), SnifferentModBlocks.LUMIBULB_0.get().defaultBlockState(),
             SnifferentModItems.SPINDLEFERN_SEEDS.get(), SnifferentModBlocks.SPINDLEFERN_0.get().defaultBlockState(),
-            SnifferentModItems.SPINEFLOWER_SEEDS.get(), SnifferentModBlocks.SPINEFLOWER_0.get().defaultBlockState());
+            SnifferentModItems.SPINEFLOWER_SEEDS.get(), SnifferentModBlocks.SPINEFLOWER_0.get().defaultBlockState(),
+            SnifferentModItems.SNIFFBERRY_SEEDLING.get(), SnifferentModBlocks.SNIFFBERRY_VINE_0.get().defaultBlockState());
     public static boolean isFarmland(BlockState state) {
         return state.getBlock() instanceof FarmBlock;
     }
@@ -31,7 +32,7 @@ public class FlowerPlanting {
         BlockState blockState = SEEDS_TO_PLANTS.get(item);
         BlockPos pos = ctx.getClickedPos().relative(ctx.getClickedFace());
         Level level = ctx.getLevel();
-        if (blockState != null && level.getBlockState(pos).canBeReplaced() && blockState.canSurvive(level, pos)){
+        if (blockState != null && level.getBlockState(pos).canBeReplaced() && blockState.canSurvive(level, pos)) {
             level.setBlockAndUpdate(pos, blockState);
             Player player = ctx.getPlayer();
             level.playSound(player, pos, SoundEvents.CROP_PLANTED, SoundSource.BLOCKS, 1.0f, 1.0f);
